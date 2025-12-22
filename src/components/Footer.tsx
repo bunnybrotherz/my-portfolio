@@ -44,7 +44,7 @@ const Footer = () => {
               <Mail size={24} className="text-foreground group-hover:text-primary transition-colors" />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/jeslynwang"
+              href="https://www.linkedin.com/in/jeslyn-wang-89b28a236"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-secondary/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
@@ -54,7 +54,7 @@ const Footer = () => {
               <Linkedin size={24} className="text-foreground group-hover:text-primary transition-colors" />
             </motion.a>
             <motion.a
-              href="https://github.com/jeslynwang"
+              href="https://github.com/bunnybrotherz"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-secondary/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
