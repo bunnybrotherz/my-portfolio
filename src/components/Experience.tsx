@@ -37,7 +37,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 px-6 bg-gradient-to-b from-secondary/30 via-secondary/20 to-background relative">
+    <section id="experience" className="py-10 px-6 bg-gradient-to-b from-secondary/30 via-secondary/20 to-background relative">
       {/* Decorative elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden bg-grid-pattern opacity-50" />
       

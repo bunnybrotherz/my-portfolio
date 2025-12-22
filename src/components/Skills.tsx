@@ -22,7 +22,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section className="py-12 px-6 overflow-hidden relative">
+    <section className="py-8 px-6 overflow-hidden relative">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
       
