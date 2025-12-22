@@ -145,11 +145,26 @@ const Projects = () => {
                     </motion.p>
 
                     <motion.div 
-                      className="flex flex-wrap gap-2 mb-4"
+                      className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.15 + 0.4 }}
+                    >
+                      {project.highlights.map((highlight, i) => (
+                        <span key={i} className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          {highlight}
+                        </span>
+                      ))}
+                    </motion.div>
+
+                    <motion.div 
+                      className="flex flex-wrap gap-2"
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.15 + 0.4 }}
+                      transition={{ duration: 0.4, delay: index * 0.15 + 0.5 }}
                     >
                       {project.tools.map((tool, i) => (
                         <motion.span 
@@ -158,25 +173,10 @@ const Projects = () => {
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
-                          transition={{ duration: 0.3, delay: index * 0.15 + 0.4 + i * 0.05 }}
+                          transition={{ duration: 0.3, delay: index * 0.15 + 0.5 + i * 0.05 }}
                         >
                           {tool}
                         </motion.span>
-                      ))}
-                    </motion.div>
-
-                    <motion.div 
-                      className="flex flex-wrap gap-4 text-sm text-muted-foreground"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.15 + 0.5 }}
-                    >
-                      {project.highlights.map((highlight, i) => (
-                        <span key={i} className="flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                          {highlight}
-                        </span>
                       ))}
                     </motion.div>
                   </div>
