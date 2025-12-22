@@ -85,17 +85,17 @@ const Experience = () => {
                   <div className="bg-card border border-border rounded-xl p-6 hover:border-primary/30 transition-all">
                     <div className="flex items-start gap-4 mb-4">
                       {/* Company Logo */}
-                      <div className="w-14 h-14 rounded-xl bg-secondary/50 border border-border flex items-center justify-center flex-shrink-0 overflow-hidden">
-                        {exp.logo ? (
-                          <img 
-                            src={exp.logo} 
-                            alt={exp.company}
-                            className="w-full h-full object-contain p-2"
-                          />
-                        ) : (
+                      {exp.logo ? (
+                        <img 
+                          src={exp.logo} 
+                          alt={exp.company}
+                          className="w-12 h-12 object-contain rounded-lg flex-shrink-0"
+                        />
+                      ) : (
+                        <div className="w-12 h-12 rounded-lg bg-secondary/50 border border-border flex items-center justify-center flex-shrink-0">
                           <Building2 size={24} className="text-muted-foreground/50" />
-                        )}
-                      </div>
+                        </div>
+                      )}
                       
                       <div className="flex-1">
                         <div className="flex items-start justify-between gap-4">
