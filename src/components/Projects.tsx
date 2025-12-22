@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Layers } from "lucide-react";
+import { ArrowUpRight, Layers, ImageIcon } from "lucide-react";
 
 const projects = [
   {
@@ -11,6 +11,7 @@ const projects = [
     highlights: ["30+ user research participants", "4+ design iterations", "10+ usability tests"],
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
     number: "01",
+    image: null, // Replace with actual image path
   },
   {
     title: "Minutes to Seconds",
@@ -21,6 +22,7 @@ const projects = [
     highlights: ["10 user interviews", "Nielsen heuristic analysis", "Live production deployment"],
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
     number: "02",
+    image: null, // Replace with actual image path
   },
   {
     title: "DBS Auto Payment",
@@ -31,6 +33,7 @@ const projects = [
     highlights: ["Lo-fi to Hi-fi lifecycle", "RESTful architecture", "Cloud Run deployment"],
     gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
     number: "03",
+    image: null, // Replace with actual image path
   },
 ];
 
@@ -77,7 +80,29 @@ const Projects = () => {
               />
 
               <div className="relative bg-card border border-border rounded-2xl p-6 md:p-8 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-start gap-6">
+                <div className="flex flex-col lg:flex-row lg:items-start gap-6">
+                  {/* Project Image */}
+                  <motion.div 
+                    className="w-full lg:w-64 h-40 lg:h-48 rounded-xl overflow-hidden bg-secondary/50 border border-border flex-shrink-0"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
+                  >
+                    {project.image ? (
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground/50">
+                        <ImageIcon size={32} className="mb-2" />
+                        <span className="text-xs font-mono">Project Preview</span>
+                      </div>
+                    )}
+                  </motion.div>
+
                   {/* Number */}
                   <motion.div 
                     className="hidden md:block"

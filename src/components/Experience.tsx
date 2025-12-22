@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, MapPin } from "lucide-react";
+import { Briefcase, MapPin, Building2 } from "lucide-react";
 
 const experiences = [
   {
@@ -10,6 +10,7 @@ const experiences = [
     period: "May - Sep 2025",
     type: "Upcoming",
     tools: ["Figma", "Canva"],
+    logo: null, // Replace with actual logo path
     highlights: [
       "Leading UX research with 10+ stakeholder interviews and journey mapping",
       "Streamlining design-to-handoff workflows with cross-functional teams"
@@ -23,6 +24,7 @@ const experiences = [
     period: "Sep - Dec 2024",
     type: "Completed",
     tools: ["SAP", "MAM Testing"],
+    logo: null, // Replace with actual logo path
     highlights: [
       "Analyzed 30+ user-reported issues across internal SAP systems",
       "Executed MAM testing across multiple devices and OS versions",
@@ -74,25 +76,42 @@ const Experience = () => {
                 {/* Content card */}
                 <div className={`ml-8 md:ml-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12 md:col-start-2'}`}>
                   <div className="bg-card border border-border rounded-xl p-6 hover:border-primary/30 transition-all">
-                    <div className="flex items-start justify-between gap-4 mb-4">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className="text-xl font-bold">{exp.role}</h3>
-                          {exp.type === "Upcoming" && (
-                            <span className="px-2 py-0.5 text-xs font-mono bg-primary/10 text-primary rounded">
-                              UPCOMING
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-primary font-medium">{exp.company}</p>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                          <MapPin size={14} />
-                          {exp.location}
+                    <div className="flex items-start gap-4 mb-4">
+                      {/* Company Logo */}
+                      <div className="w-14 h-14 rounded-xl bg-secondary/50 border border-border flex items-center justify-center flex-shrink-0 overflow-hidden">
+                        {exp.logo ? (
+                          <img 
+                            src={exp.logo} 
+                            alt={exp.company}
+                            className="w-full h-full object-contain p-2"
+                          />
+                        ) : (
+                          <Building2 size={24} className="text-muted-foreground/50" />
+                        )}
+                      </div>
+                      
+                      <div className="flex-1">
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <div className="flex items-center gap-2 mb-1">
+                              <h3 className="text-xl font-bold">{exp.role}</h3>
+                              {exp.type === "Upcoming" && (
+                                <span className="px-2 py-0.5 text-xs font-mono bg-primary/10 text-primary rounded">
+                                  UPCOMING
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-primary font-medium">{exp.company}</p>
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
+                              <MapPin size={14} />
+                              {exp.location}
+                            </div>
+                          </div>
+                          <span className="font-mono text-sm text-muted-foreground whitespace-nowrap">
+                            {exp.period}
+                          </span>
                         </div>
                       </div>
-                      <span className="font-mono text-sm text-muted-foreground whitespace-nowrap">
-                        {exp.period}
-                      </span>
                     </div>
 
                     <div className="flex flex-wrap gap-2 mb-4">
