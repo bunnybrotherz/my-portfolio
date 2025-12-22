@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Layers, ImageIcon, Sparkles } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 import unityLogo from "@/assets/unity-logo.png";
+import gameOnPreview from "@/assets/game-on-preview.png";
 
 // Tool icons mapping using Simple Icons CDN
 const toolIcons: Record<string, string> = {
@@ -33,7 +34,7 @@ const projects = [
     ],
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
     number: "01",
-    image: null,
+    image: gameOnPreview,
   },
   {
     title: "Minutes to Seconds",
