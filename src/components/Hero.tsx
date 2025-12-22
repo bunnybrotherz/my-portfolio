@@ -76,9 +76,9 @@ const Hero = () => {
       <div className="hidden sm:block absolute top-1/2 left-10 w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg rotate-45" />
 
       <div className="max-w-5xl mx-auto w-full">
-        <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-4 items-center">
+        <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center justify-items-center">
           {/* Left side - Content */}
-          <div className="order-2 lg:order-1 flex flex-col justify-center lg:pr-4">
+          <div className="order-2 lg:order-1 flex flex-col justify-center lg:items-start items-center text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -173,7 +173,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="order-1 lg:order-2 flex justify-center lg:justify-start"
+            className="order-1 lg:order-2 flex justify-center"
           >
             <div className="relative">
               {/* Decorative rings with gradient */}
