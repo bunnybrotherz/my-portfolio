@@ -10,6 +10,7 @@ import hci1 from "@/assets/hci-1.png";
 import hci2 from "@/assets/hci-2.png";
 import hci3 from "@/assets/hci-3.png";
 import hciMain from "@/assets/hci-main.png";
+import dbsMain from "@/assets/dbs-main.png";
 
 // Tool icons mapping using Simple Icons CDN
 const toolIcons: Record<string, string> = {
@@ -78,6 +79,7 @@ const projects = [
     ],
     gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
     number: "03",
+    mainImage: dbsMain,
     images: null,
   },
 ];
