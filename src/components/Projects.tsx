@@ -146,23 +146,12 @@ const Projects = () => {
                   >
                     {project.mainImage ? (
                       <div className="space-y-3">
-                        {/* Laptop mockup for main image */}
-                        <div className="relative">
-                          <div className="bg-[#2d2d2d] rounded-t-lg pt-2 pb-1 px-2">
-                            <div className="flex gap-1.5 mb-1.5">
-                              <div className="w-2 h-2 rounded-full bg-[#ff5f56]" />
-                              <div className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
-                              <div className="w-2 h-2 rounded-full bg-[#27c93f]" />
-                            </div>
-                            <img
-                              src={project.mainImage}
-                              alt={`${project.title} main screenshot`}
-                              className="w-full h-auto object-contain rounded-sm"
-                            />
-                          </div>
-                          <div className="bg-[#1a1a1a] h-3 rounded-b-lg" />
-                          <div className="bg-[#2d2d2d] h-1 w-1/2 mx-auto rounded-b-md" />
-                        </div>
+                        {/* Main image */}
+                        <img
+                          src={project.mainImage}
+                          alt={`${project.title} main screenshot`}
+                          className="w-full h-auto object-contain rounded-lg shadow-md group-hover:scale-105 transition-transform duration-500"
+                        />
                         {/* Additional screenshots */}
                         {project.images && (
                           <div className="space-y-3 mt-4">
