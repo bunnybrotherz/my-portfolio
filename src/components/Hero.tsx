@@ -76,7 +76,7 @@ const Hero = () => {
       <div className="hidden sm:block absolute top-1/2 left-10 w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg rotate-45" />
 
       <div className="max-w-6xl mx-auto w-full">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
           {/* Left side - Content */}
           <div className="order-2 lg:order-1 flex flex-col justify-center">
             <motion.div
