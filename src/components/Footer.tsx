@@ -1,67 +1,97 @@
-import { Linkedin, Mail, Phone } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="py-20 px-6 bg-secondary/30">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-          Let's Work <span className="text-gradient">Together</span>
-        </h2>
-        <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-          Currently seeking full-time opportunities starting September 2026. 
-          Feel free to reach out!
-        </p>
+    <footer id="contact" className="py-32 px-6 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent -z-10" />
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+      <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <span className="font-mono text-sm text-primary mb-4 block">GET IN TOUCH</span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            Let's create something{" "}
+            <span className="text-gradient">amazing</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-lg mx-auto">
+            I'm currently looking for full-time opportunities starting September 2026. 
+            Feel free to reach out!
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+        >
           <Button 
             size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 glow"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 glow-sm group"
             asChild
           >
             <a href="mailto:jeslynwjx@gmail.com">
-              <Mail className="mr-2" size={18} />
-              Get In Touch
+              Say Hello
+              <ArrowUpRight size={18} className="ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </Button>
           <Button 
             variant="outline" 
             size="lg"
-            className="border-border hover:border-primary hover:text-primary"
+            className="border-border hover:border-primary/50 hover:bg-primary/5"
             asChild
           >
             <a href="https://linkedin.com/in/jeslynwang" target="_blank" rel="noopener noreferrer">
-              <Linkedin className="mr-2" size={18} />
-              LinkedIn
+              <Linkedin size={18} className="mr-2" />
+              Connect on LinkedIn
             </a>
           </Button>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap items-center justify-center gap-6 text-muted-foreground text-sm mb-8">
-          <a 
-            href="mailto:jeslynwjx@gmail.com" 
-            className="flex items-center gap-2 hover:text-primary transition-colors"
-          >
-            <Mail size={16} />
-            jeslynwjx@gmail.com
-          </a>
-          <a 
-            href="tel:+6597711501" 
-            className="flex items-center gap-2 hover:text-primary transition-colors"
-          >
-            <Phone size={16} />
-            +65 9771 1501
-          </a>
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="border-t border-border pt-12"
+        >
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
+              <a 
+                href="mailto:jeslynwjx@gmail.com" 
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                <Mail size={16} />
+                jeslynwjx@gmail.com
+              </a>
+              <a 
+                href="tel:+6597711501" 
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                <Phone size={16} />
+                +65 9771 1501
+              </a>
+            </div>
 
-        <div className="border-t border-border pt-8">
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Jeslyn Wang. Built with passion.
-          </p>
-          <p className="text-muted-foreground text-xs mt-2">
-            Fluent in English & Mandarin • Dance enthusiast • Videography lover
-          </p>
-        </div>
+            <div className="text-center md:text-right">
+              <p className="text-sm text-muted-foreground">
+                © {new Date().getFullYear()} Jeslyn Wang
+              </p>
+              <p className="text-xs text-muted-foreground/60 mt-1">
+                Fluent in English & Mandarin · Dancer · Videographer
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </footer>
   );

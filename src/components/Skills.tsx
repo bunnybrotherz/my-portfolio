@@ -1,55 +1,39 @@
-import { Code2, Palette, Wrench } from "lucide-react";
+import { motion } from "framer-motion";
 
-const skillCategories = [
-  {
-    title: "Design Tools",
-    icon: Palette,
-    skills: ["Figma", "Adobe Illustrator", "Adobe Photoshop", "Canva", "Capcut"]
-  },
-  {
-    title: "Programming",
-    icon: Code2,
-    skills: ["C#", "Ruby", "Python", "JavaScript", "HTML", "CSS"]
-  },
-  {
-    title: "Frameworks & Tools",
-    icon: Wrench,
-    skills: ["Google Cloud Platform", "Git", "Postman", "Unity", "Agile Methods"]
-  }
+const skills = [
+  "Figma", "Adobe Illustrator", "Adobe Photoshop", "Canva", "Capcut",
+  "C#", "Ruby", "Python", "JavaScript", "HTML", "CSS",
+  "Google Cloud Platform", "Git", "Postman", "Unity", "Agile"
 ];
 
 const Skills = () => {
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="font-display text-3xl md:text-4xl font-bold mb-12 text-center">
-          Technical <span className="text-gradient">Skills</span>
-        </h2>
+    <section className="py-20 px-6 overflow-hidden">
+      <div className="max-w-6xl mx-auto mb-8">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="font-mono text-sm text-muted-foreground text-center"
+        >
+          TOOLS & TECHNOLOGIES
+        </motion.p>
+      </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {skillCategories.map((category, index) => (
-            <div 
+      {/* Marquee container */}
+      <div className="relative">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+
+        {/* Scrolling content */}
+        <div className="flex animate-marquee">
+          {[...skills, ...skills].map((skill, index) => (
+            <div
               key={index}
-              className="card-gradient rounded-xl p-6 border border-border hover:border-primary/50 transition-all duration-300 text-center"
+              className="flex-shrink-0 px-6 py-3 mx-2 bg-secondary/50 border border-border rounded-full text-foreground/80 hover:border-primary/50 hover:text-primary transition-colors cursor-default"
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-                <category.icon className="text-primary" size={24} />
-              </div>
-              
-              <h3 className="font-display text-lg font-semibold mb-4">
-                {category.title}
-              </h3>
-
-              <div className="flex flex-wrap justify-center gap-2">
-                {category.skills.map((skill, i) => (
-                  <span 
-                    key={i}
-                    className="text-sm px-3 py-1.5 bg-secondary text-foreground rounded-full"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+              {skill}
             </div>
           ))}
         </div>
