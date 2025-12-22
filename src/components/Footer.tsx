@@ -75,7 +75,7 @@ const Footer = () => {
         >
           <div className="text-center">
             <p className="text-sm text-muted-foreground mb-2">
-              © {new Date().getFullYear()} Jeslyn Wang. Built with passion.
+              © {new Date().getFullYear()} Jeslyn Wang
             </p>
             <p className="text-sm text-muted-foreground/70">
               Fluent in English & Mandarin • Dance enthusiast • Videography lover
