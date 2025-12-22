@@ -68,11 +68,11 @@ const Projects = () => {
                 className={`absolute inset-0 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
               />
 
-              <div className="relative bg-card border border-border rounded-2xl p-6 md:p-8 hover:border-primary/30 transition-all duration-300">
+              <div className="relative bg-card border border-border rounded-2xl p-6 md:p-8 group-hover:border-primary/50 group-hover:bg-card/80 group-hover:shadow-lg group-hover:shadow-primary/10 transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                   {/* Number */}
                   <div className="hidden md:block">
-                    <span className="font-mono text-6xl font-bold text-muted/30 group-hover:text-primary/30 transition-colors">
+                    <span className="font-mono text-6xl font-bold text-primary/20 group-hover:text-primary/60 transition-colors duration-300">
                       {project.number}
                     </span>
                   </div>
@@ -98,7 +98,7 @@ const Projects = () => {
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tools.map((tool, i) => (
-                        <span key={i} className="px-3 py-1 text-sm bg-secondary rounded-lg text-foreground/80">
+                        <span key={i} className="px-3 py-1.5 text-sm bg-primary/10 border border-primary/20 rounded-lg text-primary font-medium group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300">
                           {tool}
                         </span>
                       ))}
