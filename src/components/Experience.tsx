@@ -35,7 +35,10 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 px-6 bg-secondary/30">
+    <section id="experience" className="py-16 px-6 bg-gradient-to-b from-secondary/30 via-secondary/20 to-background relative">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 -z-10 overflow-hidden bg-grid-pattern opacity-50" />
+      
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,12 +48,14 @@ const Experience = () => {
           className="mb-16"
         >
           <div className="flex items-center gap-3 mb-4">
-            <Briefcase className="text-primary" size={24} />
-            <span className="font-mono text-sm text-primary">EXPERIENCE</span>
+            <div className="p-2 rounded-lg bg-gradient-to-br from-accent to-pink-500">
+              <Briefcase className="text-white" size={20} />
+            </div>
+            <span className="font-mono text-sm text-accent font-medium">EXPERIENCE</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold">
             Where I've{" "}
-            <span className="text-gradient">worked</span>
+            <span className="text-gradient-alt">worked</span>
           </h2>
         </motion.div>
 

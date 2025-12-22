@@ -5,8 +5,13 @@ import { Button } from "./ui/button";
 const Footer = () => {
   return (
     <footer id="contact" className="py-32 px-6 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent -z-10" />
+      {/* Background gradient and patterns */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-accent/5 to-transparent -z-10" />
+      <div className="absolute inset-0 bg-dot-pattern opacity-30 -z-10" />
+      
+      {/* Decorative blobs */}
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl -z-10" />
 
       <div className="max-w-4xl mx-auto">
         <motion.div
@@ -16,7 +21,9 @@ const Footer = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="font-mono text-sm text-primary mb-4 block">GET IN TOUCH</span>
+          <span className="inline-flex items-center gap-2 font-mono text-sm text-primary mb-4 px-3 py-1 rounded-full border border-primary/20 bg-primary/5">
+            ✨ GET IN TOUCH
+          </span>
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             Let's create something{" "}
             <span className="text-gradient">amazing</span>
@@ -36,7 +43,7 @@ const Footer = () => {
         >
           <Button 
             size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 glow-sm group"
+            className="bg-gradient-to-r from-primary to-accent text-white hover:opacity-90 glow-sm group shadow-lg"
             asChild
           >
             <a href="mailto:jeslynwjx@gmail.com">
@@ -47,11 +54,11 @@ const Footer = () => {
           <Button 
             variant="outline" 
             size="lg"
-            className="border-border hover:border-primary/50 hover:bg-primary/5"
+            className="border-primary/30 hover:border-primary hover:bg-primary/10 group"
             asChild
           >
             <a href="https://linkedin.com/in/jeslynwang" target="_blank" rel="noopener noreferrer">
-              <Linkedin size={18} className="mr-2" />
+              <Linkedin size={18} className="mr-2 group-hover:text-primary transition-colors" />
               Connect on LinkedIn
             </a>
           </Button>
