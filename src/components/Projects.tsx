@@ -58,28 +58,48 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.article
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.15,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
               className="group relative"
             >
-              <div
+              <motion.div
                 className={`absolute inset-0 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
               />
 
               <div className="relative bg-card border border-border rounded-2xl p-6 md:p-8 group-hover:border-primary/50 group-hover:bg-card/80 group-hover:shadow-lg group-hover:shadow-primary/10 transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                   {/* Number */}
-                  <div className="hidden md:block">
+                  <motion.div 
+                    className="hidden md:block"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.15 + 0.3 }}
+                  >
                     <span className="font-mono text-6xl font-bold text-primary/20 group-hover:text-primary/60 transition-colors duration-300">
                       {project.number}
                     </span>
-                  </div>
+                  </motion.div>
 
                   {/* Content */}
                   <div className="flex-1">
-                    <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                    <motion.div 
+                      className="flex flex-wrap items-start justify-between gap-4 mb-4"
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
+                    >
                       <div>
                         <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
                           {project.title}
@@ -92,26 +112,53 @@ const Projects = () => {
                         size={24}
                         className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
                       />
-                    </div>
+                    </motion.div>
 
-                    <p className="text-muted-foreground mb-6 max-w-2xl">{project.description}</p>
+                    <motion.p 
+                      className="text-muted-foreground mb-6 max-w-2xl"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.15 + 0.3 }}
+                    >
+                      {project.description}
+                    </motion.p>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <motion.div 
+                      className="flex flex-wrap gap-2 mb-4"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.15 + 0.4 }}
+                    >
                       {project.tools.map((tool, i) => (
-                        <span key={i} className="px-3 py-1.5 text-sm bg-primary/10 border border-primary/20 rounded-lg text-primary font-medium group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300">
+                        <motion.span 
+                          key={i} 
+                          className="px-3 py-1.5 text-sm bg-primary/10 border border-primary/20 rounded-lg text-primary font-medium group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.3, delay: index * 0.15 + 0.4 + i * 0.05 }}
+                        >
                           {tool}
-                        </span>
+                        </motion.span>
                       ))}
-                    </div>
+                    </motion.div>
 
-                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                    <motion.div 
+                      className="flex flex-wrap gap-4 text-sm text-muted-foreground"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.15 + 0.5 }}
+                    >
                       {project.highlights.map((highlight, i) => (
                         <span key={i} className="flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                           {highlight}
                         </span>
                       ))}
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </div>
