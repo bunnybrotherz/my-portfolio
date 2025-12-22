@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="py-32 px-6 relative overflow-hidden">
+    <footer id="contact" className="py-16 px-6 relative overflow-hidden">
       {/* Background gradient and patterns */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-accent/5 to-transparent -z-10" />
       <div className="absolute inset-0 bg-dot-pattern opacity-30 -z-10" />

@@ -35,7 +35,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-[85vh] flex items-center justify-center relative px-6 py-20 overflow-hidden bg-dot-pattern">
+    <section className="min-h-[85vh] flex items-center justify-center relative px-6 py-12 overflow-hidden bg-dot-pattern">
       {/* Sparkle particles */}
       <div className="absolute inset-0 -z-5 overflow-hidden pointer-events-none">
         {sparkles.map((sparkle) => (

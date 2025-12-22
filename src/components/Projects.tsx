@@ -54,7 +54,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-16 px-6 relative">
+    <section id="projects" className="py-10 px-6 relative">
       {/* Decorative background elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/4 -right-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
