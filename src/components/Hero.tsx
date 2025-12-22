@@ -79,30 +79,6 @@ const Hero = () => {
               </Button>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex items-center gap-4 mt-8 pt-8 border-t border-border"
-            >
-              <span className="text-sm text-muted-foreground">Find me on</span>
-              <div className="flex items-center gap-3">
-                <a 
-                  href="https://linkedin.com/in/jeslynwang" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 hover:text-primary transition-all"
-                >
-                  <Linkedin size={18} />
-                </a>
-                <a 
-                  href="mailto:jeslynwjx@gmail.com"
-                  className="p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 hover:text-primary transition-all"
-                >
-                  <Mail size={18} />
-                </a>
-              </div>
-            </motion.div>
           </div>
 
           {/* Right side - Profile image */}
