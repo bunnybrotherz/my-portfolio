@@ -195,10 +195,14 @@ const Projects = () => {
                                   transition={{ duration: 0.3, delay: index * 0.15 + 0.5 + i * 0.05 }}
                                   whileHover={{ scale: 1.15 }}
                                 >
-                                  {tool === "AI" ? (
+                                {tool === "AI" ? (
                                     <Sparkles size={24} className="text-purple-400" />
                                   ) : (
-                                    <img src={iconUrl} alt={tool} className="w-8 h-8 object-contain rounded-md" />
+                                    <img 
+                                      src={iconUrl} 
+                                      alt={tool} 
+                                      className={`object-contain rounded-md ${tool === "Google Cloud Platform" ? "w-12 h-12" : "w-8 h-8"}`} 
+                                    />
                                   )}
                                 </motion.div>
                               </TooltipTrigger>
