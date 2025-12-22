@@ -1,9 +1,24 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, Download, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
 import avatarPlaceholder from "@/assets/avatar-abstract.png";
 
+const typingText = "hi, i'm";
+
 const Hero = () => {
+  const letterVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.08,
+        duration: 0.3,
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
+      },
+    }),
+  };
+
   return (
     <section className="min-h-[85vh] flex items-center justify-center relative px-6 py-20 overflow-hidden bg-dot-pattern">
       {/* Animated background blobs */}
@@ -35,16 +50,41 @@ const Hero = () => {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
             >
-              hi, i'm{" "}
-              <span className="text-gradient">jeslyn</span>
-              <span className="block text-muted-foreground text-3xl md:text-4xl lg:text-5xl mt-2 font-medium">
+              <span className="inline-flex">
+                {typingText.split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    custom={i}
+                    initial="hidden"
+                    animate="visible"
+                    variants={letterVariants}
+                    className={char === " " ? "mr-3" : ""}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </span>{" "}
+              <motion.span 
+                className="text-gradient"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7, duration: 0.4, ease: "easeOut" }}
+              >
+                jeslyn
+              </motion.span>
+              <motion.span 
+                className="block text-muted-foreground text-3xl md:text-4xl lg:text-5xl mt-2 font-medium"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.5 }}
+              >
                 UX Designer & Developer
-              </span>
+              </motion.span>
             </motion.h1>
 
             <motion.p
