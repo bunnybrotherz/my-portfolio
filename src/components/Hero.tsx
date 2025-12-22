@@ -5,13 +5,19 @@ import avatarPlaceholder from "@/assets/avatar-abstract.png";
 
 const Hero = () => {
   return (
-    <section className="min-h-[85vh] flex items-center relative px-6 py-20 overflow-hidden">
+    <section className="min-h-[85vh] flex items-center relative px-6 py-20 overflow-hidden bg-dot-pattern">
       {/* Animated background blobs */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-blob" />
-        <div className="absolute top-40 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-blob animation-delay-4000" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/15 rounded-full blur-3xl animate-blob" />
+        <div className="absolute top-40 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-blob animation-delay-4000" />
+        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
       </div>
+
+      {/* Decorative geometric shapes */}
+      <div className="absolute top-32 right-10 w-20 h-20 border-2 border-primary/20 rounded-xl rotate-12 animate-float" />
+      <div className="absolute bottom-32 left-20 w-16 h-16 border-2 border-accent/20 rounded-full animate-float animation-delay-2000" />
+      <div className="absolute top-1/2 left-10 w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg rotate-45" />
 
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -59,7 +65,7 @@ const Hero = () => {
             >
               <Button 
                 size="lg" 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 glow-sm group"
+                className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 glow-sm group shadow-lg"
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 See My Work
@@ -89,12 +95,13 @@ const Hero = () => {
             className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
             <div className="relative">
-              {/* Decorative ring */}
-              <div className="absolute -inset-4 rounded-full border border-primary/20 animate-pulse-soft" />
-              <div className="absolute -inset-8 rounded-full border border-primary/10" />
+              {/* Decorative rings with gradient */}
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-pink-500/20 blur-sm animate-pulse" />
+              <div className="absolute -inset-6 rounded-full border border-primary/10" />
+              <div className="absolute -inset-10 rounded-full border border-accent/5" />
               
               {/* Profile image container */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 p-1">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden p-1 bg-gradient-to-br from-primary via-accent to-pink-500">
                 <div className="w-full h-full rounded-full overflow-hidden bg-card">
                   <img 
                     src={avatarPlaceholder} 
@@ -108,11 +115,20 @@ const Hero = () => {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-2 -right-2 md:bottom-4 md:right-0 px-4 py-2 bg-card border border-border rounded-full shadow-lg"
+                className="absolute -bottom-2 -right-2 md:bottom-4 md:right-0 px-4 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-full shadow-lg glow-sm"
               >
-                <span className="text-sm font-medium">
-                  <span className="text-primary">✦</span> Design & AI
+                <span className="text-sm font-medium flex items-center gap-1">
+                  <Sparkles size={14} /> Design & AI
                 </span>
+              </motion.div>
+
+              {/* Additional floating element */}
+              <motion.div
+                animate={{ y: [0, 6, 0], rotate: [0, 5, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute -top-4 -left-4 md:top-2 md:-left-6 w-12 h-12 bg-card border border-border rounded-xl shadow-lg flex items-center justify-center"
+              >
+                <span className="text-xl">🎨</span>
               </motion.div>
             </div>
           </motion.div>

@@ -39,7 +39,13 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-16 px-6">
+    <section id="projects" className="py-16 px-6 relative">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-1/4 -right-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -left-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+      </div>
+
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -49,8 +55,10 @@ const Projects = () => {
           className="mb-16"
         >
           <div className="flex items-center gap-3 mb-4">
-            <Layers className="text-primary" size={24} />
-            <span className="font-mono text-sm text-primary">SELECTED WORK</span>
+            <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-accent">
+              <Layers className="text-white" size={20} />
+            </div>
+            <span className="font-mono text-sm text-primary font-medium">SELECTED WORK</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold">
             Projects I've <span className="text-gradient">crafted</span>
