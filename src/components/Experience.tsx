@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Building2 } from "lucide-react";
+import bcaLogo from "@/assets/bca-logo.png";
+import accentureLogo from "@/assets/accenture-logo.png";
 
 const experiences = [
   {
@@ -10,7 +12,7 @@ const experiences = [
     period: "May - Sep 2025",
     type: "Upcoming",
     tools: ["Figma", "Canva"],
-    logo: null, // Replace with actual logo path
+    logo: bcaLogo,
     highlights: [
       "Leading UX research with 10+ stakeholder interviews and journey mapping",
       "Streamlining design-to-handoff workflows with cross-functional teams"
@@ -24,7 +26,7 @@ const experiences = [
     period: "Sep - Dec 2024",
     type: "Completed",
     tools: ["SAP", "MAM Testing"],
-    logo: null, // Replace with actual logo path
+    logo: accentureLogo,
     highlights: [
       "Analyzed 30+ user-reported issues across internal SAP systems",
       "Executed MAM testing across multiple devices and OS versions",
