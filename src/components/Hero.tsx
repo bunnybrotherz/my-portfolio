@@ -2,10 +2,25 @@ import { motion } from "framer-motion";
 import { ArrowDown, Download, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
 import avatarPlaceholder from "@/assets/avatar-abstract.png";
+import { useMemo } from "react";
 
 const typingText = "hi, i'm";
 
+// Generate random sparkle positions
+const generateSparkles = (count: number) => {
+  return Array.from({ length: count }, (_, i) => ({
+    id: i,
+    left: Math.random() * 100,
+    top: Math.random() * 100,
+    delay: Math.random() * 5,
+    duration: 2 + Math.random() * 3,
+    size: 2 + Math.random() * 3,
+  }));
+};
+
 const Hero = () => {
+  const sparkles = useMemo(() => generateSparkles(20), []);
+
   const letterVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
@@ -21,6 +36,32 @@ const Hero = () => {
 
   return (
     <section className="min-h-[85vh] flex items-center justify-center relative px-6 py-20 overflow-hidden bg-dot-pattern">
+      {/* Sparkle particles */}
+      <div className="absolute inset-0 -z-5 overflow-hidden pointer-events-none">
+        {sparkles.map((sparkle) => (
+          <motion.div
+            key={sparkle.id}
+            className="absolute rounded-full bg-primary/60"
+            style={{
+              left: `${sparkle.left}%`,
+              top: `${sparkle.top}%`,
+              width: sparkle.size,
+              height: sparkle.size,
+            }}
+            animate={{
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0],
+            }}
+            transition={{
+              duration: sparkle.duration,
+              delay: sparkle.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
       {/* Animated background blobs */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/15 rounded-full blur-3xl animate-blob" />
