@@ -125,10 +125,10 @@ const Projects = () => {
               />
 
               <div className="relative bg-card border border-border rounded-2xl p-5 md:p-6 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-center gap-5">
+                <div className="flex flex-col md:flex-row md:items-start gap-8">
                   {/* Project Image - Side placement */}
                   <motion.div
-                    className="w-full md:w-44 h-32 md:h-28 rounded-lg overflow-hidden bg-secondary/50 border border-border flex-shrink-0"
+                    className="w-full md:w-64 h-40 md:h-40 rounded-lg overflow-hidden bg-secondary/50 border border-border flex-shrink-0"
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
