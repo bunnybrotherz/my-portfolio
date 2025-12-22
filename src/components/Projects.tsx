@@ -136,7 +136,7 @@ const Projects = () => {
                 <div className="flex flex-col md:flex-row md:items-start gap-8">
                   {/* Project Images */}
                   <motion.div
-                    className={`flex-shrink-0 ${project.images ? 'w-full md:w-72' : 'w-full md:w-64'}`}
+                    className={`flex-shrink-0 ${project.mainImage ? 'w-full md:w-96' : project.images ? 'w-full md:w-72' : 'w-full md:w-64'}`}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -163,13 +163,13 @@ const Projects = () => {
                         </div>
                         {/* Additional screenshots */}
                         {project.images && (
-                          <div className="grid grid-cols-3 gap-2">
+                          <div className="grid grid-cols-3 gap-3 mt-4">
                             {project.images.map((img, i) => (
                               <img
                                 key={i}
                                 src={img}
                                 alt={`${project.title} screenshot ${i + 1}`}
-                                className="w-full h-auto object-contain rounded-lg group-hover:scale-105 transition-transform duration-500"
+                                className="w-full h-auto object-contain rounded-lg group-hover:scale-105 transition-transform duration-500 shadow-md"
                               />
                             ))}
                           </div>
