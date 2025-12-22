@@ -79,11 +79,11 @@ const Projects = () => {
                 transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
               />
 
-              <div className="relative bg-card border border-border rounded-2xl p-6 md:p-8 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300">
-                <div className="flex flex-col lg:flex-row lg:items-start gap-6">
-                  {/* Project Image */}
+              <div className="relative bg-card border border-border rounded-2xl p-5 md:p-6 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300">
+                <div className="flex flex-col md:flex-row md:items-center gap-5">
+                  {/* Project Image - Side placement */}
                   <motion.div 
-                    className="w-full lg:w-64 h-40 lg:h-48 rounded-xl overflow-hidden bg-secondary/50 border border-border flex-shrink-0"
+                    className="w-full md:w-44 h-32 md:h-28 rounded-lg overflow-hidden bg-secondary/50 border border-border flex-shrink-0"
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -97,27 +97,14 @@ const Projects = () => {
                       />
                     ) : (
                       <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground/50">
-                        <ImageIcon size={32} className="mb-2" />
-                        <span className="text-xs font-mono">Project Preview</span>
+                        <ImageIcon size={24} className="mb-1" />
+                        <span className="text-[10px] font-mono">Preview</span>
                       </div>
                     )}
                   </motion.div>
 
-                  {/* Number */}
-                  <motion.div 
-                    className="hidden md:block"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.15 + 0.3 }}
-                  >
-                    <span className="font-mono text-6xl font-bold text-blue-400/30 group-hover:text-blue-400/60 transition-colors duration-300">
-                      {project.number}
-                    </span>
-                  </motion.div>
-
                   {/* Content */}
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <motion.div 
                       className="flex flex-wrap items-start justify-between gap-4 mb-4"
                       initial={{ opacity: 0, y: 15 }}
