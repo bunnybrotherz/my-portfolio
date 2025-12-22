@@ -20,6 +20,7 @@ const projects = [
   {
     title: "Game On!",
     subtitle: "Final Year Project",
+    partner: "In collaboration with MSF",
     period: "Sep 2025 - May 2026",
     description: "Leading the end-to-end design and development of a mobile game prototype that helps parents navigate real-world parenting challenges through gamification. Conducted extensive user research with parents and child development experts to identify pain points, then translated insights into an engaging game mechanic that promotes positive parenting behaviors.",
     tools: ["Figma", "Unity", "Firebase", "Android Studio"],
@@ -36,6 +37,7 @@ const projects = [
   {
     title: "Minutes to Seconds",
     subtitle: "HCI & AI Project",
+    partner: null,
     period: "May - Aug 2024",
     description: "Designed and deployed an AI-powered web application that reduces meeting summarization time from minutes to seconds. Led the UX research process including user interviews, competitive analysis, and Nielsen heuristic evaluation. Collaborated with developers to implement the frontend while ensuring seamless AI integration and accessibility compliance.",
     tools: ["Figma", "Ruby", "AI", "Google Cloud Platform"],
@@ -52,6 +54,7 @@ const projects = [
   {
     title: "DBS Auto Payment",
     subtitle: "Service Design Studio",
+    partner: "In collaboration with DBS",
     period: "May - Aug 2024",
     description: "Developed a high-fidelity banking prototype for DBS featuring intelligent automated payment prompts and intuitive UX flows. Owned the complete design lifecycle from low-fidelity wireframes to pixel-perfect prototypes, while contributing to the frontend implementation using Ruby on Rails with RESTful architecture and PostgreSQL database.",
     tools: ["Figma", "Ruby on Rails", "PostgreSQL", "Google Cloud Platform"],
@@ -155,7 +158,9 @@ const Projects = () => {
                           {project.title}
                         </h3>
                         <p className="text-muted-foreground">
-                          {project.subtitle} · <span className="font-mono text-sm">{project.period}</span>
+                          {project.subtitle}
+                          {project.partner && <span className="text-primary font-medium"> · {project.partner}</span>}
+                          {" "}· <span className="font-mono text-sm">{project.period}</span>
                         </p>
                       </div>
                       <ArrowUpRight
