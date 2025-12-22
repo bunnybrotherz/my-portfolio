@@ -102,11 +102,6 @@ const Experience = () => {
                           <div>
                             <div className="flex items-center gap-2 mb-1">
                               <h3 className="text-xl font-bold">{exp.role}</h3>
-                              {exp.type === "Upcoming" && (
-                                <span className="px-2 py-0.5 text-xs font-mono bg-primary/10 text-primary rounded">
-                                  UPCOMING
-                                </span>
-                              )}
                             </div>
                             <p className="text-primary font-medium">{exp.company}</p>
                             <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
