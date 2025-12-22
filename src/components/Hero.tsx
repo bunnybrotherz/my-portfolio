@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
-import avatarPlaceholder from "@/assets/avatar-abstract.png";
+import profilePhoto from "@/assets/profile-photo.png";
 import { useMemo } from "react";
 
 const typingText = "hi, i'm";
@@ -185,7 +185,7 @@ const Hero = () => {
               <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden p-1 bg-gradient-to-br from-primary via-accent to-pink-500">
                 <div className="w-full h-full rounded-full overflow-hidden bg-card">
                   <img 
-                    src={avatarPlaceholder} 
+                    src={profilePhoto} 
                     alt="Jeslyn Wang - UX Designer"
                     className="w-full h-full object-cover"
                   />
