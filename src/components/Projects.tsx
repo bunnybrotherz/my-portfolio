@@ -3,16 +3,16 @@ import { ArrowUpRight, Layers, ImageIcon, Sparkles } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 // Tool icons mapping using Simple Icons CDN
-const toolIcons: Record<string, { icon: string; color: string }> = {
-  Figma: { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Cutout.png", color: "#F24E1E" },
-  Unity: { icon: "https://cdn.simpleicons.org/unity/white", color: "#FFFFFF" },
-  Firebase: { icon: "https://cdn.simpleicons.org/firebase", color: "#FFCA28" },
-  "Android Studio": { icon: "https://cdn.simpleicons.org/androidstudio", color: "#3DDC84" },
-  Ruby: { icon: "https://cdn.simpleicons.org/ruby", color: "#CC342D" },
-  "Ruby on Rails": { icon: "https://cdn.simpleicons.org/rubyonrails", color: "#CC0000" },
-  GCP: { icon: "https://cdn.simpleicons.org/googlecloud", color: "#4285F4" },
-  PostgreSQL: { icon: "https://cdn.simpleicons.org/postgresql", color: "#4169E1" },
-  AI: { icon: "", color: "#8B5CF6" }, // Will use Sparkles icon
+const toolIcons: Record<string, string> = {
+  Figma: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Cutout.png",
+  Unity: "https://brandslogos.com/wp-content/uploads/images/large/unity-logo.png",
+  Firebase: "https://tse2.mm.bing.net/th/id/OIP.xSHn5nIiJ2poYGZaRoE8xgHaKJ?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+  "Android Studio": "https://cdn.simpleicons.org/androidstudio",
+  Ruby: "https://cdn.simpleicons.org/ruby",
+  "Ruby on Rails": "https://cdn.simpleicons.org/rubyonrails",
+  GCP: "https://cdn.simpleicons.org/googlecloud",
+  PostgreSQL: "https://cdn.simpleicons.org/postgresql",
+  AI: "",
 };
 
 const projects = [
@@ -182,22 +182,22 @@ const Projects = () => {
                         transition={{ duration: 0.4, delay: index * 0.15 + 0.5 }}
                       >
                         {project.tools.map((tool, i) => {
-                          const toolData = toolIcons[tool];
+                          const iconUrl = toolIcons[tool];
                           return (
                             <Tooltip key={i}>
                               <TooltipTrigger asChild>
                                 <motion.div
-                                  className="w-10 h-10 flex items-center justify-center bg-secondary/50 border border-border rounded-lg group-hover:bg-secondary/80 group-hover:border-primary/30 transition-all duration-300 cursor-pointer"
+                                  className="w-8 h-8 flex items-center justify-center cursor-pointer"
                                   initial={{ opacity: 0, scale: 0.8 }}
                                   whileInView={{ opacity: 1, scale: 1 }}
                                   viewport={{ once: true }}
                                   transition={{ duration: 0.3, delay: index * 0.15 + 0.5 + i * 0.05 }}
-                                  whileHover={{ scale: 1.1 }}
+                                  whileHover={{ scale: 1.15 }}
                                 >
                                   {tool === "AI" ? (
-                                    <Sparkles size={20} className="text-purple-400" />
+                                    <Sparkles size={24} className="text-purple-400" />
                                   ) : (
-                                    <img src={toolData?.icon} alt={tool} className="w-5 h-5 object-contain" />
+                                    <img src={iconUrl} alt={tool} className="w-8 h-8 object-contain rounded-md" />
                                   )}
                                 </motion.div>
                               </TooltipTrigger>
