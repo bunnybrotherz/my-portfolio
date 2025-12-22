@@ -22,7 +22,7 @@ const Footer = () => {
           className="text-center mb-12"
         >
           <span className="inline-flex items-center gap-2 font-mono text-sm text-primary mb-4 px-3 py-1 rounded-full border border-primary/20 bg-primary/5">
-            ✨ GET IN TOUCH
+            GET IN TOUCH
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Let's create something{" "}
