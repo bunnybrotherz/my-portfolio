@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Layers, ImageIcon, Sparkles } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import unityLogo from "@/assets/unity-logo.svg";
 
 // Tool icons mapping using Simple Icons CDN
 const toolIcons: Record<string, string> = {
   Figma: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Cutout.png",
-  Unity: "https://brandslogos.com/wp-content/uploads/images/large/unity-logo.png",
+  Unity: unityLogo,
   Firebase: "https://tse2.mm.bing.net/th/id/OIP.xSHn5nIiJ2poYGZaRoE8xgHaKJ?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
   "Android Studio": "https://cdn.simpleicons.org/androidstudio",
   Ruby: "https://cdn.simpleicons.org/ruby",
