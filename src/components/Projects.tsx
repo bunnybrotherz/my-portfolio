@@ -1,108 +1,125 @@
-import { ExternalLink, Layers } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Layers } from "lucide-react";
 
 const projects = [
   {
-    title: "Game On! – Final Year Project",
+    title: "Game On!",
+    subtitle: "Final Year Project",
     period: "Sep 2025 - May 2026",
-    description: "An end-to-end game prototype designed to help parents navigate parenting challenges through gamification.",
-    tools: ["Figma", "Unity", "Google Firebase", "Android Studio"],
-    highlights: [
-      "Conducted mixed-methods UX research with 30+ participants",
-      "Iterated 4+ design cycles in Figma with continuous user feedback",
-      "Developed fully functional Android build deployed via Android Studio",
-      "Ran qualitative usability testing with 10+ users"
-    ],
-    color: "from-cyan-500/20 to-blue-500/20"
+    description: "End-to-end game prototype helping parents navigate parenting challenges through gamification.",
+    tools: ["Figma", "Unity", "Firebase", "Android Studio"],
+    highlights: ["30+ user research participants", "4+ design iterations", "10+ usability tests"],
+    gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
+    number: "01"
   },
   {
-    title: "Human-Computer Interaction & AI",
-    period: "May 2024 - Aug 2024",
-    description: "A web application integrating AI capabilities with human-centered design principles.",
-    tools: ["Figma", "Ruby", "AI", "Google Cloud Platform"],
-    highlights: [
-      "Conducted qualitative UX research with 10 users via observations and interviews",
-      "Performed heuristic evaluations (Nielsen) identifying 10+ usability issues",
-      "Built and deployed live web application using Ruby on GCP"
-    ],
-    color: "from-purple-500/20 to-pink-500/20"
+    title: "HCI & AI Platform",
+    subtitle: "Academic Project",
+    period: "May - Aug 2024",
+    description: "Web application integrating AI with human-centered design, deployed on Google Cloud.",
+    tools: ["Figma", "Ruby", "AI", "GCP"],
+    highlights: ["10 user interviews", "Nielsen heuristic analysis", "Live production deployment"],
+    gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
+    number: "02"
   },
   {
-    title: "DBS Auto Prompt Payment",
-    period: "May 2024 - Aug 2024",
-    description: "A high-fidelity banking prototype featuring automated payment prompts and seamless user flows.",
-    tools: ["Figma", "Ruby", "HTML/CSS", "GCP", "PostgreSQL"],
-    highlights: [
-      "Led full design lifecycle from Lo-fi wireframes to Hi-fi coded prototype",
-      "Designed service-oriented UX architecture using RESTful APIs",
-      "Built and deployed prototype on Google Cloud Run with cloud database"
-    ],
-    color: "from-emerald-500/20 to-teal-500/20"
+    title: "DBS Auto Payment",
+    subtitle: "Banking Prototype",
+    period: "May - Aug 2024",
+    description: "High-fidelity banking prototype with automated payment prompts and seamless UX flows.",
+    tools: ["Figma", "Ruby on Rails", "PostgreSQL", "GCP"],
+    highlights: ["Lo-fi to Hi-fi lifecycle", "RESTful architecture", "Cloud Run deployment"],
+    gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
+    number: "03"
   }
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 px-6 bg-secondary/30">
+    <section id="projects" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-3 mb-4">
-          <Layers className="text-primary" size={28} />
-          <h2 className="font-display text-3xl md:text-4xl font-bold">
-            Projects
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <Layers className="text-primary" size={24} />
+            <span className="font-mono text-sm text-primary">SELECTED WORK</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Projects I've{" "}
+            <span className="text-gradient">crafted</span>
           </h2>
-        </div>
-        <p className="text-muted-foreground mb-12 max-w-2xl">
-          Academic projects showcasing my skills in UX research, design, and development.
-        </p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="space-y-8">
           {projects.map((project, index) => (
-            <div 
+            <motion.article
               key={index}
-              className="group relative bg-card rounded-xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group relative"
             >
-              {/* Gradient top bar */}
-              <div className={`h-2 bg-gradient-to-r ${project.color}`} />
+              <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
               
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="font-display text-lg font-semibold group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <ExternalLink 
-                    size={18} 
-                    className="text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 mt-1" 
-                  />
-                </div>
-
-                <span className="text-xs text-muted-foreground mb-3 block">
-                  {project.period}
-                </span>
-
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.tools.map((tool, i) => (
-                    <span 
-                      key={i}
-                      className="text-xs px-2 py-0.5 bg-primary/10 text-primary rounded"
-                    >
-                      {tool}
+              <div className="relative bg-card border border-border rounded-2xl p-6 md:p-8 hover:border-primary/30 transition-all duration-300">
+                <div className="flex flex-col md:flex-row md:items-start gap-6">
+                  {/* Number */}
+                  <div className="hidden md:block">
+                    <span className="font-mono text-6xl font-bold text-muted/30 group-hover:text-primary/30 transition-colors">
+                      {project.number}
                     </span>
-                  ))}
-                </div>
+                  </div>
 
-                <ul className="space-y-1.5">
-                  {project.highlights.slice(0, 2).map((highlight, i) => (
-                    <li key={i} className="text-muted-foreground text-xs flex items-start gap-2">
-                      <span className="text-primary mt-0.5">•</span>
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
+                  {/* Content */}
+                  <div className="flex-1">
+                    <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                      <div>
+                        <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {project.subtitle} · <span className="font-mono text-sm">{project.period}</span>
+                        </p>
+                      </div>
+                      <ArrowUpRight 
+                        size={24} 
+                        className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" 
+                      />
+                    </div>
+
+                    <p className="text-muted-foreground mb-6 max-w-2xl">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tools.map((tool, i) => (
+                        <span 
+                          key={i}
+                          className="px-3 py-1 text-sm bg-secondary rounded-lg text-foreground/80"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                      {project.highlights.map((highlight, i) => (
+                        <span key={i} className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          {highlight}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </motion.article>
           ))}
         </div>
       </div>

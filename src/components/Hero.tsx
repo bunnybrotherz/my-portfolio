@@ -1,65 +1,146 @@
-import { ArrowDown, Linkedin, Mail } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowDown, Download, Linkedin, Mail, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
+import avatarPlaceholder from "@/assets/avatar-abstract.png";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative px-6 py-20">
-      <div className="max-w-4xl mx-auto text-center">
-        <p className="text-primary font-medium mb-4 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-          Hi, I'm
-        </p>
-        <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-          Jeslyn Wang
-        </h1>
-        <p className="text-2xl md:text-3xl font-display font-medium mb-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-          Design & AI <span className="text-gradient">Student</span>
-        </p>
-        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-          UX Designer passionate about creating human-centered digital experiences. 
-          Currently pursuing a BSc in Design & AI at SUTD, Singapore.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 animate-fade-up" style={{ animationDelay: '0.5s' }}>
-          <Button 
-            size="lg" 
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 glow"
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            View My Work
-          </Button>
-          <div className="flex items-center gap-4">
-            <a 
-              href="https://linkedin.com/in/jeslynwang" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-colors"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a 
-              href="mailto:jeslynwjx@gmail.com"
-              className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-colors"
-            >
-              <Mail size={20} />
-            </a>
-          </div>
-        </div>
-
-        <div className="animate-fade-up" style={{ animationDelay: '0.6s' }}>
-          <a 
-            href="#projects" 
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-          >
-            <span className="text-sm">Scroll to explore</span>
-            <ArrowDown size={16} className="animate-bounce" />
-          </a>
-        </div>
+    <section className="min-h-screen flex items-center relative px-6 py-32 overflow-hidden">
+      {/* Animated background blobs */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-blob" />
+        <div className="absolute top-40 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-blob animation-delay-4000" />
       </div>
 
-      {/* Background decoration */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left side - Content */}
+          <div className="order-2 lg:order-1">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-flex items-center gap-2 text-sm font-mono text-primary mb-6 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5">
+                <Sparkles size={14} />
+                Available Sep 2026
+              </span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
+            >
+              Hi, I'm{" "}
+              <span className="text-gradient">Jeslyn</span>
+              <span className="block text-muted-foreground text-3xl md:text-4xl lg:text-5xl mt-2 font-medium">
+                UX Designer & Developer
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed"
+            >
+              Currently pursuing a BSc in <span className="text-foreground">Design & AI</span> at SUTD, Singapore. 
+              I create human-centered digital experiences that make a difference.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap items-center gap-4"
+            >
+              <Button 
+                size="lg" 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 glow-sm group"
+                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                See My Work
+                <ArrowDown size={18} className="ml-1 group-hover:translate-y-0.5 transition-transform" />
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-border hover:border-primary/50 hover:bg-primary/5"
+                asChild
+              >
+                <a href="/resume.pdf" download>
+                  <Download size={18} className="mr-2" />
+                  Resume
+                </a>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex items-center gap-4 mt-8 pt-8 border-t border-border"
+            >
+              <span className="text-sm text-muted-foreground">Find me on</span>
+              <div className="flex items-center gap-3">
+                <a 
+                  href="https://linkedin.com/in/jeslynwang" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 hover:text-primary transition-all"
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a 
+                  href="mailto:jeslynwjx@gmail.com"
+                  className="p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 hover:text-primary transition-all"
+                >
+                  <Mail size={18} />
+                </a>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right side - Profile image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="order-1 lg:order-2 flex justify-center lg:justify-end"
+          >
+            <div className="relative">
+              {/* Decorative ring */}
+              <div className="absolute -inset-4 rounded-full border border-primary/20 animate-pulse-soft" />
+              <div className="absolute -inset-8 rounded-full border border-primary/10" />
+              
+              {/* Profile image container */}
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 p-1">
+                <div className="w-full h-full rounded-full overflow-hidden bg-card">
+                  <img 
+                    src={avatarPlaceholder} 
+                    alt="Jeslyn Wang - UX Designer"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Floating badge */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-2 -right-2 md:bottom-4 md:right-0 px-4 py-2 bg-card border border-border rounded-full shadow-lg"
+              >
+                <span className="text-sm font-medium">
+                  <span className="text-primary">✦</span> Design & AI
+                </span>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

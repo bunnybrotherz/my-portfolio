@@ -1,0 +1,3 @@
+This is a placeholder for the resume PDF.
+
+Upload your actual resume as "resume.pdf" to the public folder.
