@@ -86,7 +86,7 @@ const Projects = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.15 + 0.3 }}
                   >
-                    <span className="font-mono text-6xl font-bold text-primary/20 group-hover:text-primary/60 transition-colors duration-300">
+                    <span className="font-mono text-6xl font-bold text-blue-400/30 group-hover:text-blue-400/60 transition-colors duration-300">
                       {project.number}
                     </span>
                   </motion.div>
@@ -134,7 +134,7 @@ const Projects = () => {
                       {project.tools.map((tool, i) => (
                         <motion.span 
                           key={i} 
-                          className="px-3 py-1.5 text-sm bg-primary/10 border border-primary/20 rounded-lg text-primary font-medium group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300"
+                          className="px-3 py-1.5 text-sm bg-blue-500/10 border border-blue-400/20 rounded-lg text-blue-400 font-medium group-hover:bg-blue-500/20 group-hover:border-blue-400/40 transition-all duration-300"
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
