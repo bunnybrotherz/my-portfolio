@@ -40,8 +40,8 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
             >
-              Hi, I'm{" "}
-              <span className="text-gradient">Jeslyn</span>
+              hi, i'm{" "}
+              <span className="text-gradient">jeslyn</span>
               <span className="block text-muted-foreground text-3xl md:text-4xl lg:text-5xl mt-2 font-medium">
                 UX Designer & Developer
               </span>
