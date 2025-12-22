@@ -62,8 +62,8 @@ const Skills = () => {
       }} viewport={{
         once: true
       }} className="flex items-center justify-center gap-3">
-          <div className="p-1.5 rounded-md bg-gradient-to-br from-primary to-accent px-[10px]">
-            <Wrench className="text-white" size={16} />
+          <div className="p-2 rounded-md bg-gradient-to-br from-primary to-accent">
+            <Wrench className="text-white" size={28} />
           </div>
           <span className="font-mono text-primary font-medium text-3xl">TOOLS & TECHNOLOGIES</span>
         </motion.div>
