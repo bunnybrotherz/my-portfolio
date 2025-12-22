@@ -163,15 +163,24 @@ const Projects = () => {
                         </div>
                         {/* Additional screenshots */}
                         {project.images && (
-                          <div className="grid grid-cols-3 gap-3 mt-4">
-                            {project.images.map((img, i) => (
+                          <div className="space-y-3 mt-4">
+                            <div className="grid grid-cols-2 gap-3">
+                              {project.images.slice(0, 2).map((img, i) => (
+                                <img
+                                  key={i}
+                                  src={img}
+                                  alt={`${project.title} screenshot ${i + 1}`}
+                                  className="w-full h-auto object-contain rounded-lg group-hover:scale-105 transition-transform duration-500 shadow-md"
+                                />
+                              ))}
+                            </div>
+                            {project.images[2] && (
                               <img
-                                key={i}
-                                src={img}
-                                alt={`${project.title} screenshot ${i + 1}`}
+                                src={project.images[2]}
+                                alt={`${project.title} screenshot 3`}
                                 className="w-full h-auto object-contain rounded-lg group-hover:scale-105 transition-transform duration-500 shadow-md"
                               />
-                            ))}
+                            )}
                           </div>
                         )}
                       </div>
