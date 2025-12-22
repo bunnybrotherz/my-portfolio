@@ -188,7 +188,7 @@ const Projects = () => {
                             <Tooltip key={i}>
                               <TooltipTrigger asChild>
                                 <motion.div
-                                  className="w-10 h-10 flex items-center justify-center cursor-pointer"
+                                  className="w-12 h-12 flex items-center justify-center cursor-pointer"
                                   initial={{ opacity: 0, scale: 0.8 }}
                                   whileInView={{ opacity: 1, scale: 1 }}
                                   viewport={{ once: true }}
@@ -196,9 +196,9 @@ const Projects = () => {
                                   whileHover={{ scale: 1.15 }}
                                 >
                                   {tool === "AI" ? (
-                                    <Sparkles size={28} className="text-purple-400" />
+                                    <Sparkles size={32} className="text-purple-400" />
                                   ) : (
-                                    <img src={iconUrl} alt={tool} className="w-10 h-10 object-contain rounded-md" />
+                                    <img src={iconUrl} alt={tool} className="w-12 h-12 object-contain rounded-md" />
                                   )}
                                 </motion.div>
                               </TooltipTrigger>
