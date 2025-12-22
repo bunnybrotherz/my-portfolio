@@ -4,14 +4,14 @@ import { Button } from "./ui/button";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="py-16 px-6 relative overflow-hidden">
+    <footer id="contact" className="py-10 sm:py-16 px-4 sm:px-6 relative overflow-hidden">
       {/* Background gradient and patterns */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-accent/5 to-transparent -z-10" />
       <div className="absolute inset-0 bg-dot-pattern opacity-30 -z-10" />
       
       {/* Decorative blobs */}
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-primary/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 right-1/4 w-48 sm:w-80 h-48 sm:h-80 bg-accent/10 rounded-full blur-3xl -z-10" />
 
       <div className="max-w-4xl mx-auto">
         <motion.div

@@ -37,7 +37,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-10 px-6 bg-gradient-to-b from-secondary/30 via-secondary/20 to-background relative">
+    <section id="experience" className="py-8 sm:py-10 px-4 sm:px-6 bg-gradient-to-b from-secondary/30 via-secondary/20 to-background relative">
       {/* Decorative elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden bg-grid-pattern opacity-50" />
       
@@ -81,56 +81,58 @@ const Experience = () => {
                 <div className="absolute left-0 md:left-1/2 top-8 w-3 h-3 rounded-full bg-primary -translate-x-1.5 md:-translate-x-1.5 ring-4 ring-background" />
 
                 {/* Content card */}
-                <div className={`ml-8 md:ml-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12 md:col-start-2'}`}>
-                  <div className="bg-card border border-border rounded-xl p-6 hover:border-primary/30 transition-all">
-                    <div className="flex items-start gap-4 mb-4">
+                <div className={`ml-6 sm:ml-8 md:ml-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12 md:col-start-2'}`}>
+                  <div className="bg-card border border-border rounded-xl p-4 sm:p-6 hover:border-primary/30 transition-all">
+                    <div className="flex items-start gap-3 sm:gap-4 mb-4">
                       {/* Company Logo */}
                       {exp.logo ? (
                         <img 
                           src={exp.logo} 
                           alt={exp.company}
-                          className="w-12 h-12 object-contain rounded-lg flex-shrink-0"
+                          className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-lg flex-shrink-0"
                         />
                       ) : (
-                        <div className="w-12 h-12 rounded-lg bg-secondary/50 border border-border flex items-center justify-center flex-shrink-0">
-                          <Building2 size={24} className="text-muted-foreground/50" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-secondary/50 border border-border flex items-center justify-center flex-shrink-0">
+                          <Building2 size={20} className="text-muted-foreground/50 sm:hidden" />
+                          <Building2 size={24} className="text-muted-foreground/50 hidden sm:block" />
                         </div>
                       )}
                       
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between gap-4">
-                          <div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-4">
+                          <div className="min-w-0">
                             <div className="flex items-center gap-2 mb-1">
-                              <h3 className="text-xl font-bold">{exp.role}</h3>
+                              <h3 className="text-lg sm:text-xl font-bold truncate">{exp.role}</h3>
                             </div>
-                            <p className="text-primary font-medium">{exp.company}</p>
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                              <MapPin size={14} />
+                            <p className="text-primary font-medium text-sm sm:text-base">{exp.company}</p>
+                            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mt-1">
+                              <MapPin size={12} className="sm:hidden" />
+                              <MapPin size={14} className="hidden sm:block" />
                               {exp.location}
                             </div>
                           </div>
-                          <span className="font-mono text-sm text-muted-foreground whitespace-nowrap">
+                          <span className="font-mono text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
                             {exp.period}
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
                       {exp.tools.map((tool, i) => (
                         <span 
                           key={i}
-                          className="px-2.5 py-1 text-xs bg-primary/10 text-primary rounded-md"
+                          className="px-2 sm:px-2.5 py-0.5 sm:py-1 text-xs bg-primary/10 text-primary rounded-md"
                         >
                           {tool}
                         </span>
                       ))}
                     </div>
 
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5 sm:space-y-2">
                       {exp.highlights.map((highlight, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <span className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        <li key={i} className="text-xs sm:text-sm text-muted-foreground flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-primary mt-1.5 sm:mt-2 flex-shrink-0" />
                           {highlight}
                         </li>
                       ))}

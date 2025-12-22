@@ -35,7 +35,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-[85vh] flex items-center justify-center relative px-6 py-12 overflow-hidden bg-dot-pattern">
+    <section className="min-h-[85vh] flex items-center justify-center relative px-4 sm:px-6 py-8 sm:py-12 overflow-hidden bg-dot-pattern">
       {/* Sparkle particles */}
       <div className="absolute inset-0 -z-5 overflow-hidden pointer-events-none">
         {sparkles.map((sparkle) => (
@@ -64,19 +64,19 @@ const Hero = () => {
 
       {/* Animated background blobs */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/15 rounded-full blur-3xl animate-blob" />
-        <div className="absolute top-40 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-blob animation-delay-4000" />
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
+        <div className="absolute top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-primary/15 rounded-full blur-3xl animate-blob" />
+        <div className="absolute top-40 right-5 sm:right-20 w-64 sm:w-96 h-64 sm:h-96 bg-accent/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
+        <div className="absolute bottom-20 left-1/3 w-56 sm:w-80 h-56 sm:h-80 bg-pink-500/10 rounded-full blur-3xl animate-blob animation-delay-4000" />
+        <div className="absolute top-1/2 right-1/4 w-48 sm:w-64 h-48 sm:h-64 bg-blue-500/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
       </div>
 
-      {/* Decorative geometric shapes */}
-      <div className="absolute top-32 right-10 w-20 h-20 border-2 border-primary/20 rounded-xl rotate-12 animate-float" />
-      <div className="absolute bottom-32 left-20 w-16 h-16 border-2 border-accent/20 rounded-full animate-float animation-delay-2000" />
-      <div className="absolute top-1/2 left-10 w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg rotate-45" />
+      {/* Decorative geometric shapes - hidden on mobile */}
+      <div className="hidden sm:block absolute top-32 right-10 w-20 h-20 border-2 border-primary/20 rounded-xl rotate-12 animate-float" />
+      <div className="hidden sm:block absolute bottom-32 left-20 w-16 h-16 border-2 border-accent/20 rounded-full animate-float animation-delay-2000" />
+      <div className="hidden sm:block absolute top-1/2 left-10 w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg rotate-45" />
 
       <div className="max-w-6xl mx-auto w-full">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           {/* Left side - Content */}
           <div className="order-2 lg:order-1 flex flex-col justify-center">
             <motion.div
@@ -182,7 +182,7 @@ const Hero = () => {
               <div className="absolute -inset-10 rounded-full border border-accent/5" />
               
               {/* Profile image container */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden p-1 bg-gradient-to-br from-primary via-accent to-pink-500">
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden p-1 bg-gradient-to-br from-primary via-accent to-pink-500">
                 <div className="w-full h-full rounded-full overflow-hidden bg-card">
                   <img 
                     src={avatarPlaceholder} 

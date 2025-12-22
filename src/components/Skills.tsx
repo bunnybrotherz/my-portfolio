@@ -22,7 +22,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section className="py-8 px-6 overflow-hidden relative">
+    <section className="py-6 sm:py-8 px-4 sm:px-6 overflow-hidden relative">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
       
@@ -43,17 +43,17 @@ const Skills = () => {
       {/* Marquee container */}
       <div className="relative">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
         {/* Scrolling content */}
         <div className="flex animate-marquee">
           {[...skills, ...skills].map((skill, index) => (
             <div
               key={index}
-              className="flex-shrink-0 px-5 py-2.5 mx-2 bg-card border border-border rounded-full hover:border-primary/50 transition-all cursor-default group shadow-sm hover:shadow-md"
+              className="flex-shrink-0 px-3 sm:px-5 py-1.5 sm:py-2.5 mx-1.5 sm:mx-2 bg-card border border-border rounded-full hover:border-primary/50 transition-all cursor-default group shadow-sm hover:shadow-md"
             >
-              <span className={`bg-gradient-to-r ${skill.color} bg-clip-text text-transparent font-medium group-hover:opacity-100 opacity-80 transition-opacity`}>
+              <span className={`bg-gradient-to-r ${skill.color} bg-clip-text text-transparent font-medium text-sm sm:text-base group-hover:opacity-100 opacity-80 transition-opacity`}>
                 {skill.name}
               </span>
             </div>
