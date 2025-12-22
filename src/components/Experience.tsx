@@ -55,7 +55,7 @@ const Experience = () => {
             </div>
             <span className="font-mono text-sm text-accent font-medium">EXPERIENCE</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold">
+          <h2 className="text-3xl md:text-4xl font-bold">
             Where I've{" "}
             <span className="text-gradient-alt">worked</span>
           </h2>
