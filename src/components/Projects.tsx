@@ -4,7 +4,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/t
 
 // Tool icons mapping using Simple Icons CDN
 const toolIcons: Record<string, { icon: string; color: string }> = {
-  "Figma": { icon: "https://cdn.simpleicons.org/figma", color: "#F24E1E" },
+  "Figma": { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Cutout.png", color: "#F24E1E" },
   "Unity": { icon: "https://cdn.simpleicons.org/unity/white", color: "#FFFFFF" },
   "Firebase": { icon: "https://cdn.simpleicons.org/firebase", color: "#FFCA28" },
   "Android Studio": { icon: "https://cdn.simpleicons.org/androidstudio", color: "#3DDC84" },
