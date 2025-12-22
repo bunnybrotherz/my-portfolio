@@ -76,7 +76,7 @@ const Projects = () => {
                 transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
               />
 
-              <div className="relative bg-card border border-border rounded-2xl p-6 md:p-8 group-hover:border-primary/50 group-hover:bg-card/80 group-hover:shadow-lg group-hover:shadow-primary/10 transition-all duration-300">
+              <div className="relative bg-card border border-border rounded-2xl p-6 md:p-8 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                   {/* Number */}
                   <motion.div 
