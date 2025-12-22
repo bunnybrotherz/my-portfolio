@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Linkedin, Mail, Github } from "lucide-react";
-import { Button } from "./ui/button";
+import { Linkedin, Mail, Github } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -66,24 +65,6 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-        >
-          <Button 
-            size="lg"
-            className="bg-gradient-to-r from-primary to-accent text-white hover:opacity-90 glow-sm group shadow-lg"
-            asChild
-          >
-            <a href="mailto:jeslynwjx@gmail.com">
-              Say Hello
-              <ArrowUpRight size={18} className="ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-          </Button>
-        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
