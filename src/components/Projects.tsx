@@ -20,7 +20,8 @@ const projects = [
   {
     title: "Game On!",
     subtitle: "Final Year Project",
-    partner: "In collaboration with MSF",
+    partner: "MSF",
+    partnerLogo: "https://www.msf.gov.sg/ResourcePackages/Msf/assets/img/msf-logo.png",
     period: "Sep 2025 - May 2026",
     description: "Leading the end-to-end design and development of a mobile game prototype that helps parents navigate real-world parenting challenges through gamification. Conducted extensive user research with parents and child development experts to identify pain points, then translated insights into an engaging game mechanic that promotes positive parenting behaviors.",
     tools: ["Figma", "Unity", "Firebase", "Android Studio"],
@@ -38,6 +39,7 @@ const projects = [
     title: "Minutes to Seconds",
     subtitle: "HCI & AI Project",
     partner: null,
+    partnerLogo: null,
     period: "May - Aug 2024",
     description: "Designed and deployed an AI-powered web application that reduces meeting summarization time from minutes to seconds. Led the UX research process including user interviews, competitive analysis, and Nielsen heuristic evaluation. Collaborated with developers to implement the frontend while ensuring seamless AI integration and accessibility compliance.",
     tools: ["Figma", "Ruby", "AI", "Google Cloud Platform"],
@@ -54,7 +56,8 @@ const projects = [
   {
     title: "DBS Auto Payment",
     subtitle: "Service Design Studio",
-    partner: "In collaboration with DBS",
+    partner: "DBS",
+    partnerLogo: "https://th.bing.com/th/id/R.ddce714d19c1f5d6d7b8962c25449fe2?rik=4V%2bkCYLaSmiaSg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2flogo-dbs-png-dbs-bank-logo-logotype-4519.png&ehk=pUyYTffFFD1WwHmsLYI%2fYBy78YjbrxsbG46bjjdYEcI%3d&risl=&pid=ImgRaw&r=0",
     period: "May - Aug 2024",
     description: "Developed a high-fidelity banking prototype for DBS featuring intelligent automated payment prompts and intuitive UX flows. Owned the complete design lifecycle from low-fidelity wireframes to pixel-perfect prototypes, while contributing to the frontend implementation using Ruby on Rails with RESTful architecture and PostgreSQL database.",
     tools: ["Figma", "Ruby on Rails", "PostgreSQL", "Google Cloud Platform"],
@@ -157,10 +160,15 @@ const Projects = () => {
                         <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
                           {project.title}
                         </h3>
-                        <p className="text-muted-foreground">
+                        <p className="text-muted-foreground flex items-center gap-2 flex-wrap">
                           {project.subtitle}
-                          {project.partner && <span className="text-primary font-medium"> · {project.partner}</span>}
-                          {" "}· <span className="font-mono text-sm">{project.period}</span>
+                          {project.partner && (
+                            <span className="inline-flex items-center gap-1.5 text-primary font-medium">
+                              · In collaboration with
+                              <img src={project.partnerLogo!} alt={project.partner} className="h-5 object-contain" />
+                            </span>
+                          )}
+                          <span className="font-mono text-sm">· {project.period}</span>
                         </p>
                       </div>
                       <ArrowUpRight
