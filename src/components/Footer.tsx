@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Linkedin, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Linkedin, Mail, Github } from "lucide-react";
 import { Button } from "./ui/button";
 
 const Footer = () => {
@@ -28,10 +28,42 @@ const Footer = () => {
             Let's create something{" "}
             <span className="text-gradient">amazing</span>
           </h2>
-          <p className="text-muted-foreground text-base max-w-lg mx-auto">
+          <p className="text-muted-foreground text-base max-w-lg mx-auto mb-8">
             I'm currently looking for full-time opportunities starting September 2026. 
             Feel free to reach out!
           </p>
+
+          {/* Social Icons Row */}
+          <div className="flex items-center justify-center gap-6 mb-8">
+            <motion.a
+              href="mailto:jeslynwjx@gmail.com"
+              className="p-3 rounded-full bg-secondary/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Mail size={24} className="text-foreground group-hover:text-primary transition-colors" />
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com/in/jeslynwang"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-secondary/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Linkedin size={24} className="text-foreground group-hover:text-primary transition-colors" />
+            </motion.a>
+            <motion.a
+              href="https://github.com/jeslynwang"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-secondary/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github size={24} className="text-foreground group-hover:text-primary transition-colors" />
+            </motion.a>
+          </div>
         </motion.div>
 
         <motion.div
@@ -51,17 +83,6 @@ const Footer = () => {
               <ArrowUpRight size={18} className="ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </Button>
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="border-primary/30 hover:border-primary hover:bg-primary/10 group"
-            asChild
-          >
-            <a href="https://linkedin.com/in/jeslynwang" target="_blank" rel="noopener noreferrer">
-              <Linkedin size={18} className="mr-2 group-hover:text-primary transition-colors" />
-              Connect on LinkedIn
-            </a>
-          </Button>
         </motion.div>
 
         <motion.div
@@ -69,34 +90,15 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="border-t border-border pt-12"
+          className="border-t border-border pt-8"
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-              <a 
-                href="mailto:jeslynwjx@gmail.com" 
-                className="flex items-center gap-2 hover:text-primary transition-colors"
-              >
-                <Mail size={16} />
-                jeslynwjx@gmail.com
-              </a>
-              <a 
-                href="tel:+6597711501" 
-                className="flex items-center gap-2 hover:text-primary transition-colors"
-              >
-                <Phone size={16} />
-                +65 9771 1501
-              </a>
-            </div>
-
-            <div className="text-center md:text-right">
-              <p className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} Jeslyn Wang
-              </p>
-              <p className="text-xs text-muted-foreground/60 mt-1">
-                Fluent in English & Mandarin · Dancer · Videographer
-              </p>
-            </div>
+          <div className="text-center">
+            <p className="text-sm text-muted-foreground mb-2">
+              © {new Date().getFullYear()} Jeslyn Wang. Built with passion.
+            </p>
+            <p className="text-sm text-muted-foreground/70">
+              Fluent in English & Mandarin • Dance enthusiast • Videography lover
+            </p>
           </div>
         </motion.div>
       </div>
