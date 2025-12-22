@@ -8,7 +8,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section className="py-20 px-6 overflow-hidden">
+    <section className="py-12 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto mb-8">
         <motion.p
           initial={{ opacity: 0 }}
