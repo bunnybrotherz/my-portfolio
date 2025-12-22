@@ -162,14 +162,6 @@ const Hero = () => {
                 </span>
               </motion.div>
 
-              {/* Additional floating element */}
-              <motion.div
-                animate={{ y: [0, 6, 0], rotate: [0, 5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -top-4 -left-4 md:top-2 md:-left-6 w-12 h-12 bg-card border border-border rounded-xl shadow-lg flex items-center justify-center"
-              >
-                <span className="text-xl">🎨</span>
-              </motion.div>
             </div>
           </motion.div>
         </div>
