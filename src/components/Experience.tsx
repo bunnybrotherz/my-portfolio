@@ -99,21 +99,18 @@ const Experience = () => {
                       )}
                       
                       <div className="flex-1 min-w-0">
-                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-4">
-                          <div className="min-w-0">
-                            <div className="flex items-center gap-2 mb-1">
-                              <h3 className="text-lg sm:text-xl font-bold truncate">{exp.role}</h3>
-                            </div>
+                        <div className="flex flex-col gap-1">
+                          <div>
+                            <h3 className="text-lg sm:text-xl font-bold">{exp.role}</h3>
                             <p className="text-primary font-medium text-sm sm:text-base">{exp.company}</p>
                             <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mt-1">
-                              <MapPin size={12} className="sm:hidden" />
-                              <MapPin size={14} className="hidden sm:block" />
+                              <MapPin size={12} className="sm:hidden flex-shrink-0" />
+                              <MapPin size={14} className="hidden sm:block flex-shrink-0" />
                               {exp.location}
+                              <span className="text-muted-foreground/50">·</span>
+                              <span className="font-mono">{exp.period}</span>
                             </div>
                           </div>
-                          <span className="font-mono text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
-                            {exp.period}
-                          </span>
                         </div>
                       </div>
                     </div>
