@@ -4,15 +4,15 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/t
 
 // Tool icons mapping using Simple Icons CDN
 const toolIcons: Record<string, { icon: string; color: string }> = {
-  "Figma": { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Cutout.png", color: "#F24E1E" },
-  "Unity": { icon: "https://cdn.simpleicons.org/unity/white", color: "#FFFFFF" },
-  "Firebase": { icon: "https://cdn.simpleicons.org/firebase", color: "#FFCA28" },
+  Figma: { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Cutout.png" },
+  Unity: { icon: "https://cdn.simpleicons.org/unity/white", color: "#FFFFFF" },
+  Firebase: { icon: "https://cdn.simpleicons.org/firebase", color: "#FFCA28" },
   "Android Studio": { icon: "https://cdn.simpleicons.org/androidstudio", color: "#3DDC84" },
-  "Ruby": { icon: "https://cdn.simpleicons.org/ruby", color: "#CC342D" },
+  Ruby: { icon: "https://cdn.simpleicons.org/ruby", color: "#CC342D" },
   "Ruby on Rails": { icon: "https://cdn.simpleicons.org/rubyonrails", color: "#CC0000" },
-  "GCP": { icon: "https://cdn.simpleicons.org/googlecloud", color: "#4285F4" },
-  "PostgreSQL": { icon: "https://cdn.simpleicons.org/postgresql", color: "#4169E1" },
-  "AI": { icon: "", color: "#8B5CF6" }, // Will use Sparkles icon
+  GCP: { icon: "https://cdn.simpleicons.org/googlecloud", color: "#4285F4" },
+  PostgreSQL: { icon: "https://cdn.simpleicons.org/postgresql", color: "#4169E1" },
+  AI: { icon: "", color: "#8B5CF6" }, // Will use Sparkles icon
 };
 
 const projects = [
@@ -86,10 +86,10 @@ const Projects = () => {
               initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ 
-                duration: 0.6, 
+              transition={{
+                duration: 0.6,
                 delay: index * 0.15,
-                ease: [0.25, 0.46, 0.45, 0.94]
+                ease: [0.25, 0.46, 0.45, 0.94],
               }}
               className="group relative"
             >
@@ -104,7 +104,7 @@ const Projects = () => {
               <div className="relative bg-card border border-border rounded-2xl p-5 md:p-6 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-center gap-5">
                   {/* Project Image - Side placement */}
-                  <motion.div 
+                  <motion.div
                     className="w-full md:w-44 h-32 md:h-28 rounded-lg overflow-hidden bg-secondary/50 border border-border flex-shrink-0"
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -112,8 +112,8 @@ const Projects = () => {
                     transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
                   >
                     {project.image ? (
-                      <img 
-                        src={project.image} 
+                      <img
+                        src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
@@ -127,7 +127,7 @@ const Projects = () => {
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">
-                    <motion.div 
+                    <motion.div
                       className="flex flex-wrap items-start justify-between gap-4 mb-4"
                       initial={{ opacity: 0, y: 15 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +148,7 @@ const Projects = () => {
                       />
                     </motion.div>
 
-                    <motion.p 
+                    <motion.p
                       className="text-muted-foreground mb-6 max-w-2xl"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -158,7 +158,7 @@ const Projects = () => {
                       {project.description}
                     </motion.p>
 
-                    <motion.div 
+                    <motion.div
                       className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -174,7 +174,7 @@ const Projects = () => {
                     </motion.div>
 
                     <TooltipProvider delayDuration={100}>
-                      <motion.div 
+                      <motion.div
                         className="flex flex-wrap gap-3"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +186,7 @@ const Projects = () => {
                           return (
                             <Tooltip key={i}>
                               <TooltipTrigger asChild>
-                                <motion.div 
+                                <motion.div
                                   className="w-10 h-10 flex items-center justify-center bg-secondary/50 border border-border rounded-lg group-hover:bg-secondary/80 group-hover:border-primary/30 transition-all duration-300 cursor-pointer"
                                   initial={{ opacity: 0, scale: 0.8 }}
                                   whileInView={{ opacity: 1, scale: 1 }}
@@ -197,11 +197,7 @@ const Projects = () => {
                                   {tool === "AI" ? (
                                     <Sparkles size={20} className="text-purple-400" />
                                   ) : (
-                                    <img 
-                                      src={toolData?.icon} 
-                                      alt={tool}
-                                      className="w-5 h-5 object-contain"
-                                    />
+                                    <img src={toolData?.icon} alt={tool} className="w-5 h-5 object-contain" />
                                   )}
                                 </motion.div>
                               </TooltipTrigger>
