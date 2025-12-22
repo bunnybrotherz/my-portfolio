@@ -60,7 +60,7 @@ const projects = [
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
     number: "02",
     mainImage: hciMain,
-    images: [hci1, hci2, hci3],
+    images: [hci1, hci3, hci2],
   },
   {
     title: "DBS Auto Payment",
