@@ -5,7 +5,7 @@ import avatarPlaceholder from "@/assets/avatar-abstract.png";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center relative px-6 py-32 overflow-hidden">
+    <section className="min-h-[85vh] flex items-center relative px-6 py-20 overflow-hidden">
       {/* Animated background blobs */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-blob" />
