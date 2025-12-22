@@ -87,7 +87,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-10 px-6 relative">
+    <section id="projects" className="py-8 sm:py-10 px-4 sm:px-6 relative">
       {/* Decorative background elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/4 -right-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
@@ -135,8 +135,8 @@ const Projects = () => {
                 transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
               />
 
-              <div className="relative bg-card border border-border rounded-2xl p-5 md:p-6 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-start gap-8">
+              <div className="relative bg-card border border-border rounded-2xl p-4 sm:p-5 md:p-6 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300">
+                <div className="flex flex-col md:flex-row md:items-start gap-4 sm:gap-6 md:gap-8">
                   {/* Project Images */}
                   <motion.div
                     className={`flex-shrink-0 ${project.mainImage ? 'w-full md:w-96' : project.images ? 'w-full md:w-72' : 'w-full md:w-64'}`}
@@ -229,23 +229,23 @@ const Projects = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
                     >
-                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                      <h3 className="text-lg sm:text-xl font-bold group-hover:text-primary transition-colors">
                         {project.title}
                       </h3>
-                      <div className="text-muted-foreground">
+                      <div className="text-muted-foreground text-sm sm:text-base">
                         <span>{project.subtitle}</span>
                         {project.partner && (
                           <span className="inline-flex items-center gap-1.5 text-primary font-medium ml-2">
-                            · In collaboration with
-                            <img src={project.partnerLogo!} alt={project.partner} className="h-5 object-contain" />
+                            · <span className="hidden xs:inline">In collaboration with</span>
+                            <img src={project.partnerLogo!} alt={project.partner} className="h-4 sm:h-5 object-contain" />
                           </span>
                         )}
                       </div>
-                      <span className="font-mono text-sm text-muted-foreground">{project.period}</span>
+                      <span className="font-mono text-xs sm:text-sm text-muted-foreground">{project.period}</span>
                     </motion.div>
 
                     <motion.p
-                      className="text-muted-foreground mb-6 max-w-2xl"
+                      className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-2xl"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
@@ -255,7 +255,7 @@ const Projects = () => {
                     </motion.p>
 
                     <motion.div
-                      className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4"
+                      className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground mb-4"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
@@ -263,7 +263,7 @@ const Projects = () => {
                     >
                       {project.highlights.map((highlight, i) => (
                         <span key={i} className="flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          <span className="w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-primary" />
                           {highlight}
                         </span>
                       ))}
