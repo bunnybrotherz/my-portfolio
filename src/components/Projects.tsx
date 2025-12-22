@@ -148,33 +148,33 @@ const Projects = () => {
                   </motion.div>
 
                   {/* Content */}
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 relative">
+                    {/* Arrow always at top right */}
+                    <ArrowUpRight
+                      size={24}
+                      className="absolute top-0 right-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
+                    />
+                    
                     <motion.div
-                      className="flex flex-wrap items-start justify-between gap-4 mb-4"
+                      className="pr-10 mb-4"
                       initial={{ opacity: 0, y: 15 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
                     >
-                      <div>
-                        <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-                          {project.title}
-                        </h3>
-                        <p className="text-muted-foreground flex items-center gap-2 flex-wrap">
-                          {project.subtitle}
-                          {project.partner && (
-                            <span className="inline-flex items-center gap-1.5 text-primary font-medium">
-                              · In collaboration with
-                              <img src={project.partnerLogo!} alt={project.partner} className="h-5 object-contain" />
-                            </span>
-                          )}
-                          <span className="font-mono text-sm">· {project.period}</span>
-                        </p>
+                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <div className="text-muted-foreground">
+                        <span>{project.subtitle}</span>
+                        {project.partner && (
+                          <span className="inline-flex items-center gap-1.5 text-primary font-medium ml-2">
+                            · In collaboration with
+                            <img src={project.partnerLogo!} alt={project.partner} className="h-5 object-contain" />
+                          </span>
+                        )}
                       </div>
-                      <ArrowUpRight
-                        size={24}
-                        className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
-                      />
+                      <span className="font-mono text-sm text-muted-foreground">{project.period}</span>
                     </motion.div>
 
                     <motion.p
