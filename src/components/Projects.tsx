@@ -1,5 +1,19 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Layers, ImageIcon } from "lucide-react";
+import { ArrowUpRight, Layers, ImageIcon, Sparkles } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+
+// Tool icons mapping using Simple Icons CDN
+const toolIcons: Record<string, { icon: string; color: string }> = {
+  "Figma": { icon: "https://cdn.simpleicons.org/figma", color: "#F24E1E" },
+  "Unity": { icon: "https://cdn.simpleicons.org/unity/white", color: "#FFFFFF" },
+  "Firebase": { icon: "https://cdn.simpleicons.org/firebase", color: "#FFCA28" },
+  "Android Studio": { icon: "https://cdn.simpleicons.org/androidstudio", color: "#3DDC84" },
+  "Ruby": { icon: "https://cdn.simpleicons.org/ruby", color: "#CC342D" },
+  "Ruby on Rails": { icon: "https://cdn.simpleicons.org/rubyonrails", color: "#CC0000" },
+  "GCP": { icon: "https://cdn.simpleicons.org/googlecloud", color: "#4285F4" },
+  "PostgreSQL": { icon: "https://cdn.simpleicons.org/postgresql", color: "#4169E1" },
+  "AI": { icon: "", color: "#8B5CF6" }, // Will use Sparkles icon
+};
 
 const projects = [
   {
@@ -11,7 +25,7 @@ const projects = [
     highlights: ["30+ user research participants", "4+ design iterations", "10+ usability tests"],
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
     number: "01",
-    image: null, // Replace with actual image path
+    image: null,
   },
   {
     title: "Minutes to Seconds",
@@ -22,7 +36,7 @@ const projects = [
     highlights: ["10 user interviews", "Nielsen heuristic analysis", "Live production deployment"],
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
     number: "02",
-    image: null, // Replace with actual image path
+    image: null,
   },
   {
     title: "DBS Auto Payment",
@@ -33,7 +47,7 @@ const projects = [
     highlights: ["Lo-fi to Hi-fi lifecycle", "RESTful architecture", "Cloud Run deployment"],
     gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
     number: "03",
-    image: null, // Replace with actual image path
+    image: null,
   },
 ];
 
@@ -159,26 +173,46 @@ const Projects = () => {
                       ))}
                     </motion.div>
 
-                    <motion.div 
-                      className="flex flex-wrap gap-2"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.15 + 0.5 }}
-                    >
-                      {project.tools.map((tool, i) => (
-                        <motion.span 
-                          key={i} 
-                          className="px-3 py-1.5 text-sm bg-blue-500/10 border border-blue-400/20 rounded-lg text-blue-400 font-medium group-hover:bg-blue-500/20 group-hover:border-blue-400/40 transition-all duration-300"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.3, delay: index * 0.15 + 0.5 + i * 0.05 }}
-                        >
-                          {tool}
-                        </motion.span>
-                      ))}
-                    </motion.div>
+                    <TooltipProvider delayDuration={100}>
+                      <motion.div 
+                        className="flex flex-wrap gap-3"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: index * 0.15 + 0.5 }}
+                      >
+                        {project.tools.map((tool, i) => {
+                          const toolData = toolIcons[tool];
+                          return (
+                            <Tooltip key={i}>
+                              <TooltipTrigger asChild>
+                                <motion.div 
+                                  className="w-10 h-10 flex items-center justify-center bg-secondary/50 border border-border rounded-lg group-hover:bg-secondary/80 group-hover:border-primary/30 transition-all duration-300 cursor-pointer"
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  viewport={{ once: true }}
+                                  transition={{ duration: 0.3, delay: index * 0.15 + 0.5 + i * 0.05 }}
+                                  whileHover={{ scale: 1.1 }}
+                                >
+                                  {tool === "AI" ? (
+                                    <Sparkles size={20} className="text-purple-400" />
+                                  ) : (
+                                    <img 
+                                      src={toolData?.icon} 
+                                      alt={tool}
+                                      className="w-5 h-5 object-contain"
+                                    />
+                                  )}
+                                </motion.div>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>{tool}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          );
+                        })}
+                      </motion.div>
+                    </TooltipProvider>
                   </div>
                 </div>
               </div>
