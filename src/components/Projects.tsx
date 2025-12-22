@@ -6,6 +6,10 @@ import gameOn1 from "@/assets/game-on-1.png";
 import gameOn2 from "@/assets/game-on-2.png";
 import gameOn3 from "@/assets/game-on-3.png";
 import gameOn4 from "@/assets/game-on-4.png";
+import hci1 from "@/assets/hci-1.png";
+import hci2 from "@/assets/hci-2.png";
+import hci3 from "@/assets/hci-3.png";
+import hciMain from "@/assets/hci-main.png";
 
 // Tool icons mapping using Simple Icons CDN
 const toolIcons: Record<string, string> = {
@@ -55,7 +59,8 @@ const projects = [
     ],
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
     number: "02",
-    images: null,
+    mainImage: hciMain,
+    images: [hci1, hci2, hci3],
   },
   {
     title: "DBS Auto Payment",
@@ -137,7 +142,40 @@ const Projects = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
                   >
-                    {project.images ? (
+                    {project.mainImage ? (
+                      <div className="space-y-3">
+                        {/* Laptop mockup for main image */}
+                        <div className="relative">
+                          <div className="bg-[#2d2d2d] rounded-t-lg pt-2 pb-1 px-2">
+                            <div className="flex gap-1.5 mb-1.5">
+                              <div className="w-2 h-2 rounded-full bg-[#ff5f56]" />
+                              <div className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
+                              <div className="w-2 h-2 rounded-full bg-[#27c93f]" />
+                            </div>
+                            <img
+                              src={project.mainImage}
+                              alt={`${project.title} main screenshot`}
+                              className="w-full h-auto object-contain rounded-sm"
+                            />
+                          </div>
+                          <div className="bg-[#1a1a1a] h-3 rounded-b-lg" />
+                          <div className="bg-[#2d2d2d] h-1 w-1/2 mx-auto rounded-b-md" />
+                        </div>
+                        {/* Additional screenshots */}
+                        {project.images && (
+                          <div className="grid grid-cols-3 gap-2">
+                            {project.images.map((img, i) => (
+                              <img
+                                key={i}
+                                src={img}
+                                alt={`${project.title} screenshot ${i + 1}`}
+                                className="w-full h-auto object-contain rounded-lg group-hover:scale-105 transition-transform duration-500"
+                              />
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : project.images ? (
                       <div className="grid grid-cols-2 gap-3">
                         {project.images.map((img, i) => (
                           <img
