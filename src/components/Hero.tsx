@@ -5,7 +5,7 @@ import avatarPlaceholder from "@/assets/avatar-abstract.png";
 
 const Hero = () => {
   return (
-    <section className="min-h-[85vh] flex items-center relative px-6 py-20 overflow-hidden bg-dot-pattern">
+    <section className="min-h-[85vh] flex items-center justify-center relative px-6 py-20 overflow-hidden bg-dot-pattern">
       {/* Animated background blobs */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/15 rounded-full blur-3xl animate-blob" />
@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left side - Content */}
-          <div className="order-2 lg:order-1">
+          <div className="order-2 lg:order-1 flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
