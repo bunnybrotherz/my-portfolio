@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Layers, ImageIcon, Sparkles } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 import unityLogo from "@/assets/unity-logo.png";
-import gameOnPreview from "@/assets/game-on-preview.png";
+import gameOn1 from "@/assets/game-on-1.png";
+import gameOn2 from "@/assets/game-on-2.png";
+import gameOn3 from "@/assets/game-on-3.png";
+import gameOn4 from "@/assets/game-on-4.png";
 
 // Tool icons mapping using Simple Icons CDN
 const toolIcons: Record<string, string> = {
@@ -34,7 +37,7 @@ const projects = [
     ],
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
     number: "01",
-    image: gameOnPreview,
+    images: [gameOn1, gameOn2, gameOn3, gameOn4],
   },
   {
     title: "Minutes to Seconds",
@@ -52,7 +55,7 @@ const projects = [
     ],
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
     number: "02",
-    image: null,
+    images: null,
   },
   {
     title: "DBS Auto Payment",
@@ -70,7 +73,7 @@ const projects = [
     ],
     gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
     number: "03",
-    image: null,
+    images: null,
   },
 ];
 
@@ -126,22 +129,28 @@ const Projects = () => {
 
               <div className="relative bg-card border border-border rounded-2xl p-5 md:p-6 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-start gap-8">
-                  {/* Project Image - Side placement */}
+                  {/* Project Images */}
                   <motion.div
-                    className="w-full md:w-64 h-40 md:h-40 rounded-lg overflow-hidden bg-secondary/50 border border-border flex-shrink-0"
+                    className={`flex-shrink-0 ${project.images ? 'w-full md:w-72' : 'w-full md:w-64'}`}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
                   >
-                    {project.image ? (
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                    {project.images ? (
+                      <div className="grid grid-cols-2 gap-2">
+                        {project.images.map((img, i) => (
+                          <div key={i} className="rounded-lg overflow-hidden bg-secondary/50 border border-border aspect-[9/16]">
+                            <img
+                              src={img}
+                              alt={`${project.title} screenshot ${i + 1}`}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </div>
+                        ))}
+                      </div>
                     ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground/50">
+                      <div className="h-40 rounded-lg overflow-hidden bg-secondary/50 border border-border flex flex-col items-center justify-center text-muted-foreground/50">
                         <ImageIcon size={24} className="mb-1" />
                         <span className="text-[10px] font-mono">Preview</span>
                       </div>
