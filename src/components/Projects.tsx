@@ -138,15 +138,14 @@ const Projects = () => {
                     transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
                   >
                     {project.images ? (
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-2 gap-3">
                         {project.images.map((img, i) => (
-                          <div key={i} className="rounded-lg overflow-hidden bg-secondary/50 border border-border aspect-[9/16]">
-                            <img
-                              src={img}
-                              alt={`${project.title} screenshot ${i + 1}`}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                          </div>
+                          <img
+                            key={i}
+                            src={img}
+                            alt={`${project.title} screenshot ${i + 1}`}
+                            className="w-full h-auto object-contain rounded-lg group-hover:scale-105 transition-transform duration-500"
+                          />
                         ))}
                       </div>
                     ) : (
