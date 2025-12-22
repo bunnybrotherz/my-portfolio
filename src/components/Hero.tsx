@@ -75,10 +75,10 @@ const Hero = () => {
       <div className="hidden sm:block absolute bottom-32 left-20 w-16 h-16 border-2 border-accent/20 rounded-full animate-float animation-delay-2000" />
       <div className="hidden sm:block absolute top-1/2 left-10 w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg rotate-45" />
 
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
+      <div className="max-w-5xl mx-auto w-full">
+        <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-4 items-center">
           {/* Left side - Content */}
-          <div className="order-2 lg:order-1 flex flex-col justify-center">
+          <div className="order-2 lg:order-1 flex flex-col justify-center lg:pr-4">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
