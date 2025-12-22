@@ -201,7 +201,7 @@ const Projects = () => {
                                     <img 
                                       src={iconUrl} 
                                       alt={tool} 
-                                      className={`object-contain rounded-md ${tool === "Google Cloud Platform" ? "w-12 h-12" : "w-8 h-8"}`} 
+                                      className={`object-contain rounded-md ${tool === "Google Cloud Platform" ? "w-16 h-16" : "w-8 h-8"}`} 
                                     />
                                   )}
                                 </motion.div>
