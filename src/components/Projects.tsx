@@ -10,28 +10,28 @@ const projects = [
     tools: ["Figma", "Unity", "Firebase", "Android Studio"],
     highlights: ["30+ user research participants", "4+ design iterations", "10+ usability tests"],
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
-    number: "01"
+    number: "01",
   },
   {
-    title: "HCI & AI Platform",
-    subtitle: "Academic Project",
+    title: "Minutes to Seconds",
+    subtitle: "HCI & AI Project",
     period: "May - Aug 2024",
     description: "Web application integrating AI with human-centered design, deployed on Google Cloud.",
     tools: ["Figma", "Ruby", "AI", "GCP"],
     highlights: ["10 user interviews", "Nielsen heuristic analysis", "Live production deployment"],
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
-    number: "02"
+    number: "02",
   },
   {
     title: "DBS Auto Payment",
-    subtitle: "Banking Prototype",
+    subtitle: "Service Design Studio",
     period: "May - Aug 2024",
     description: "High-fidelity banking prototype with automated payment prompts and seamless UX flows.",
     tools: ["Figma", "Ruby on Rails", "PostgreSQL", "GCP"],
     highlights: ["Lo-fi to Hi-fi lifecycle", "RESTful architecture", "Cloud Run deployment"],
     gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
-    number: "03"
-  }
+    number: "03",
+  },
 ];
 
 const Projects = () => {
@@ -50,8 +50,7 @@ const Projects = () => {
             <span className="font-mono text-sm text-primary">SELECTED WORK</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold">
-            Projects I've{" "}
-            <span className="text-gradient">crafted</span>
+            Projects I've <span className="text-gradient">crafted</span>
           </h2>
         </motion.div>
 
@@ -65,8 +64,10 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              
+              <div
+                className={`absolute inset-0 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+              />
+
               <div className="relative bg-card border border-border rounded-2xl p-6 md:p-8 hover:border-primary/30 transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                   {/* Number */}
@@ -87,22 +88,17 @@ const Projects = () => {
                           {project.subtitle} · <span className="font-mono text-sm">{project.period}</span>
                         </p>
                       </div>
-                      <ArrowUpRight 
-                        size={24} 
-                        className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" 
+                      <ArrowUpRight
+                        size={24}
+                        className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
                       />
                     </div>
 
-                    <p className="text-muted-foreground mb-6 max-w-2xl">
-                      {project.description}
-                    </p>
+                    <p className="text-muted-foreground mb-6 max-w-2xl">{project.description}</p>
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tools.map((tool, i) => (
-                        <span 
-                          key={i}
-                          className="px-3 py-1 text-sm bg-secondary rounded-lg text-foreground/80"
-                        >
+                        <span key={i} className="px-3 py-1 text-sm bg-secondary rounded-lg text-foreground/80">
                           {tool}
                         </span>
                       ))}
