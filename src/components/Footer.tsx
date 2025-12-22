@@ -24,11 +24,11 @@ const Footer = () => {
           <span className="inline-flex items-center gap-2 font-mono text-sm text-primary mb-4 px-3 py-1 rounded-full border border-primary/20 bg-primary/5">
             ✨ GET IN TOUCH
           </span>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Let's create something{" "}
             <span className="text-gradient">amazing</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-lg mx-auto">
+          <p className="text-muted-foreground text-base max-w-lg mx-auto">
             I'm currently looking for full-time opportunities starting September 2026. 
             Feel free to reach out!
           </p>

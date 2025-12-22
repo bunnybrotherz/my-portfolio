@@ -75,7 +75,7 @@ const Projects = () => {
             </div>
             <span className="font-mono text-sm text-primary font-medium">SELECTED WORK</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold">
+          <h2 className="text-3xl md:text-4xl font-bold">
             Projects I've <span className="text-gradient">crafted</span>
           </h2>
         </motion.div>
@@ -136,7 +136,7 @@ const Projects = () => {
                       transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
                     >
                       <div>
-                        <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                        <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
                           {project.title}
                         </h3>
                         <p className="text-muted-foreground">

@@ -94,7 +94,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4"
             >
               <span className="inline-flex">
                 {typingText.split("").map((char, i) => (
@@ -119,7 +119,7 @@ const Hero = () => {
                 jeslyn
               </motion.span>
               <motion.span 
-                className="block text-muted-foreground text-3xl md:text-4xl lg:text-5xl mt-2 font-medium"
+                className="block text-muted-foreground text-2xl md:text-3xl lg:text-4xl mt-2 font-medium"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.5 }}
@@ -132,7 +132,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed"
+              className="text-base text-muted-foreground max-w-lg mb-6 leading-relaxed"
             >
               Currently pursuing a BSc in <span className="text-foreground">Design & AI</span> at SUTD, Singapore. 
               I create human-centered digital experiences that make a difference.
