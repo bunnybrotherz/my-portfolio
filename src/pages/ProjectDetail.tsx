@@ -15,6 +15,7 @@ import gameOn2 from "@/assets/game-on-2.png";
 import gameOn3 from "@/assets/game-on-3.png";
 import gameOn4 from "@/assets/game-on-4.png";
 import dbsMain from "@/assets/dbs-main.png";
+import smartProtectionMain from "@/assets/smart-protection-main.png";
 
 const toolIcons: Record<string, string> = {
   Figma: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Cutout.png",
@@ -73,7 +74,7 @@ const projectsData: Record<string, {
       "YOLOv11 & U-Net models"
     ],
     images: [],
-    mainImage: undefined,
+    mainImage: smartProtectionMain,
   },
   "dbs-auto-payment": {
     title: "DBS Auto Payment",
