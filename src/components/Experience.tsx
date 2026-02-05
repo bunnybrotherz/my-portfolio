@@ -67,10 +67,7 @@ const Experience = () => {
           duration: 0.5,
           delay: index * 0.1
         }} className="group relative">
-              {/* Gradient border effect */}
-              <div className={`absolute -inset-0.5 bg-gradient-to-r ${exp.color} rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-300`} />
-              
-              <div className="relative bg-card border border-border rounded-2xl p-5 sm:p-6 hover:border-primary/30 transition-all h-full">
+              <div className="bg-card border border-border rounded-2xl p-5 sm:p-6 h-full">
                 {/* Status badge */}
                 <div className="absolute top-4 right-4">
                   
