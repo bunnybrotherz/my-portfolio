@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GameOnTimeline from "@/components/GameOnTimeline";
 
 import unityLogo from "@/assets/unity-logo.png";
 import gameOn1 from "@/assets/game-on-1.png";
@@ -199,6 +200,9 @@ const ProjectDetail = () => {
               ))}
             </div>
           </motion.div>
+
+          {/* Game On Timeline - Only show for game-on project */}
+          {slug === "game-on" && <GameOnTimeline />}
 
           {/* Images Gallery */}
           {project.images.length > 0 && (
