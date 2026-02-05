@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Layers, ImageIcon, Sparkles } from "lucide-react";
+import { ArrowUpRight, Layers, ImageIcon, Sparkles, ExternalLink } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import { Button } from "./ui/button";
 import unityLogo from "@/assets/unity-logo.png";
 import gameOn1 from "@/assets/game-on-1.png";
 import gameOn2 from "@/assets/game-on-2.png";
@@ -43,6 +44,7 @@ const projects = [
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
     number: "01",
     images: [gameOn1, gameOn2, gameOn3, gameOn4],
+    link: null,
   },
   {
     title: "Minutes to Seconds",
@@ -63,6 +65,7 @@ const projects = [
     mainImage: hciMain,
     useLaptopMockup: true,
     images: [hci1, hci3, hci2],
+    link: null,
   },
   {
     title: "DBS Auto Payment",
@@ -82,6 +85,7 @@ const projects = [
     number: "03",
     mainImage: dbsMain,
     images: null,
+    link: null,
   },
 ];
 
@@ -260,46 +264,69 @@ const Projects = () => {
                       ))}
                     </motion.div>
 
-                    <TooltipProvider delayDuration={100}>
-                      <motion.div
-                        className="flex flex-wrap gap-3 mt-auto pt-4"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: index * 0.15 + 0.5 }}
-                      >
-                        {project.tools.map((tool, i) => {
-                          const iconUrl = toolIcons[tool];
-                          return (
-                            <Tooltip key={i}>
-                              <TooltipTrigger asChild>
-                                <motion.div
-                                  className="w-8 h-8 flex items-center justify-center cursor-pointer"
-                                  initial={{ opacity: 0, scale: 0.8 }}
-                                  whileInView={{ opacity: 1, scale: 1 }}
-                                  viewport={{ once: true }}
-                                  transition={{ duration: 0.3, delay: index * 0.15 + 0.5 + i * 0.05 }}
-                                  whileHover={{ scale: 1.15 }}
-                                >
-                                {tool === "AI" ? (
-                                    <Sparkles size={24} className="text-purple-400" />
-                                  ) : (
-                                    <img 
-                                      src={iconUrl} 
-                                      alt={tool} 
-                                      className={`object-contain rounded-md ${tool === "Google Cloud Platform" ? "w-16 h-16" : "w-8 h-8"}`} 
-                                    />
-                                  )}
-                                </motion.div>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>{tool}</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          );
-                        })}
-                      </motion.div>
-                    </TooltipProvider>
+                    <div className="flex items-center gap-4 mt-auto pt-4">
+                      <TooltipProvider delayDuration={100}>
+                        <motion.div
+                          className="flex flex-wrap gap-3"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.15 + 0.5 }}
+                        >
+                          {project.tools.map((tool, i) => {
+                            const iconUrl = toolIcons[tool];
+                            return (
+                              <Tooltip key={i}>
+                                <TooltipTrigger asChild>
+                                  <motion.div
+                                    className="w-8 h-8 flex items-center justify-center cursor-pointer"
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.3, delay: index * 0.15 + 0.5 + i * 0.05 }}
+                                    whileHover={{ scale: 1.15 }}
+                                  >
+                                  {tool === "AI" ? (
+                                      <Sparkles size={24} className="text-purple-400" />
+                                    ) : (
+                                      <img 
+                                        src={iconUrl} 
+                                        alt={tool} 
+                                        className={`object-contain rounded-md ${tool === "Google Cloud Platform" ? "w-16 h-16" : "w-8 h-8"}`} 
+                                      />
+                                    )}
+                                  </motion.div>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>{tool}</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            );
+                          })}
+                        </motion.div>
+                      </TooltipProvider>
+                      
+                      {project.link && (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.15 + 0.6 }}
+                          className="ml-auto"
+                        >
+                          <Button
+                            asChild
+                            size="sm"
+                            className="gap-2"
+                          >
+                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                              View Project
+                              <ExternalLink size={14} />
+                            </a>
+                          </Button>
+                        </motion.div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
