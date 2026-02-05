@@ -16,6 +16,7 @@ import getgoing1 from "@/assets/getgoing-1.png";
 import getgoing2 from "@/assets/getgoing-2.png";
 import getgoing3 from "@/assets/getgoing-3.png";
 import getgoing4 from "@/assets/getgoing-4.png";
+import smartProtectionDashboard from "@/assets/smart-protection-dashboard.png";
 
 // Tool icons mapping using Simple Icons CDN
 const toolIcons: Record<string, string> = {
@@ -57,8 +58,8 @@ const projects = [{
   highlights: ["20 protected areas covered", "70%+ reduction in labeled data", "3–5× faster response time", "YOLOv11 & U-Net models"],
   gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
   number: "02",
-  mainImage: null,
-  useLaptopMockup: false,
+  mainImage: smartProtectionDashboard,
+  useLaptopMockup: true,
   images: null,
   slug: "smart-protection"
 }, {
