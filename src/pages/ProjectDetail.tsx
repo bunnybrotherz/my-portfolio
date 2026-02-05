@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import GameOnTimeline from "@/components/GameOnTimeline";
 import DBSTimeline from "@/components/DBSTimeline";
 import SmartProtectionTimeline from "@/components/SmartProtectionTimeline";
+import GetGoingTimeline from "@/components/GetGoingTimeline";
 
 import unityLogo from "@/assets/unity-logo.png";
 import gameOn1 from "@/assets/game-on-1.png";
@@ -16,6 +17,10 @@ import gameOn3 from "@/assets/game-on-3.png";
 import gameOn4 from "@/assets/game-on-4.png";
 import dbsMain from "@/assets/dbs-main.png";
 import smartProtectionMain from "@/assets/smart-protection-main.png";
+import getgoing1 from "@/assets/getgoing-1.png";
+import getgoing2 from "@/assets/getgoing-2.png";
+import getgoing3 from "@/assets/getgoing-3.png";
+import getgoing4 from "@/assets/getgoing-4.png";
 
 const toolIcons: Record<string, string> = {
   Figma: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Cutout.png",
@@ -28,6 +33,8 @@ const toolIcons: Record<string, string> = {
   PostgreSQL: "https://cdn.simpleicons.org/postgresql",
   Python: "https://cdn.simpleicons.org/python",
   PyTorch: "https://cdn.simpleicons.org/pytorch",
+  React: "https://cdn.simpleicons.org/react",
+  TypeScript: "https://cdn.simpleicons.org/typescript",
   AI: "",
 };
 
@@ -92,6 +99,23 @@ const projectsData: Record<string, {
     ],
     images: [],
     mainImage: dbsMain,
+  },
+  "getgoing": {
+    title: "GetGoing",
+    subtitle: "Systems Design Studio",
+    partner: "Gebirah",
+    partnerLogo: "https://media.licdn.com/dms/image/v2/C560BAQHvLW3LFG16yA/company-logo_200_200/company-logo_200_200/0/1631308569915?e=2147483647&v=beta&t=CRHxF_CZl2yjr3L4jUu0s3mM7lWj9Q7VmKBwwLa8DsI",
+    period: "Jan - Apr 2025",
+    description: "Designed a multilingual flood Early Warning System (EWS) mobile app for underserved Filipino communities in Bagong Silangan, Philippines. Partnered with Gebirah, a humanitarian organization, to create a 'single source of truth' that connects communities and delivers clear, reliable flood warnings. Built agent-based simulations to optimize evacuation prioritization strategies, achieving up to 88% rescue rates for vulnerable populations including elderly and PWDs.",
+    tools: ["Figma", "Python", "React", "TypeScript"],
+    highlights: [
+      "Agent-based simulation model",
+      "88% rescue rate achieved",
+      "Multilingual mobile interface",
+      "5 prioritization strategies tested"
+    ],
+    images: [getgoing1, getgoing2, getgoing3, getgoing4],
+    mainImage: undefined,
   },
 };
 
@@ -250,6 +274,9 @@ const ProjectDetail = () => {
 
           {/* Smart Protection Timeline - Only show for smart-protection project */}
           {slug === "smart-protection" && <SmartProtectionTimeline />}
+
+          {/* GetGoing Timeline - Only show for getgoing project */}
+          {slug === "getgoing" && <GetGoingTimeline />}
 
           {/* Images Gallery */}
           {project.images.length > 0 && (
