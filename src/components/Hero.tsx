@@ -80,35 +80,10 @@ const Hero = () => {
           }} transition={{
             duration: 0.6
           }}>
-              <span className="inline-flex items-center gap-2 text-sm font-mono text-primary mb-4 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5">
+              <span className="inline-flex items-center gap-2 text-sm font-mono text-primary mb-6 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5">
                 <Sparkles size={14} />
                 Available Jun 2026
               </span>
-            </motion.div>
-
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.15
-          }} className="flex flex-wrap items-center gap-4 mb-6">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 glow-sm group shadow-lg" onClick={() => document.getElementById('projects')?.scrollIntoView({
-              behavior: 'smooth'
-            })}>
-                See My Work
-                <ArrowDown size={18} className="ml-1 group-hover:translate-y-0.5 transition-transform" />
-              </Button>
-              
-              <Button size="lg" variant="outline" className="border-border hover:border-primary/50 hover:bg-primary/5" asChild>
-                <a href="https://drive.google.com/uc?export=download&id=1OwAKrWnGOyrdPe36LZYMzuR_HhLSL6bc" target="_blank" rel="noopener noreferrer">
-                  <Download size={18} className="mr-2" />
-                  Resume
-                </a>
-              </Button>
             </motion.div>
 
             <motion.h1 initial={{
@@ -165,9 +140,32 @@ const Hero = () => {
               I create human-centered digital experiences that make a difference.
             </motion.p>
 
-          </div>
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.3
+          }} className="flex flex-wrap items-center gap-4">
+              <Button size="lg" className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 glow-sm group shadow-lg" onClick={() => document.getElementById('projects')?.scrollIntoView({
+              behavior: 'smooth'
+            })}>
+                See My Work
+                <ArrowDown size={18} className="ml-1 group-hover:translate-y-0.5 transition-transform" />
+              </Button>
+              
+              <Button size="lg" variant="outline" className="border-border hover:border-primary/50 hover:bg-primary/5" asChild>
+                <a href="https://drive.google.com/uc?export=download&id=1OwAKrWnGOyrdPe36LZYMzuR_HhLSL6bc" target="_blank" rel="noopener noreferrer">
+                  <Download size={18} className="mr-2" />
+                  Resume
+                </a>
+              </Button>
+            </motion.div>
 
-          {/* Right side - Profile image */}
+          </div>
           <motion.div initial={{
           opacity: 0,
           scale: 0.9

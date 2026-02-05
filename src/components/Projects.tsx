@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Layers, ImageIcon, Sparkles } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
-import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import unityLogo from "@/assets/unity-logo.png";
 import gameOn1 from "@/assets/game-on-1.png";
@@ -134,15 +133,16 @@ const Projects = () => {
               }}
               className="group relative"
             >
-              <motion.div
-                className={`absolute inset-0 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
-              />
+              <Link to={`/projects/${project.slug}`} className="block h-full">
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
+                />
 
-              <div className="relative bg-card border border-border rounded-2xl p-4 sm:p-5 md:p-6 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300 h-full flex flex-col">
+                <div className="relative bg-card border border-border rounded-2xl p-4 sm:p-5 md:p-6 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300 h-full flex flex-col cursor-pointer">
                 <div className="flex flex-col gap-4 sm:gap-6 flex-1">
                   {/* Project Images */}
                   <motion.div
@@ -308,29 +308,11 @@ const Projects = () => {
                           })}
                         </motion.div>
                       </TooltipProvider>
-                      
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: index * 0.15 + 0.6 }}
-                        className="ml-auto"
-                      >
-                        <Button
-                          asChild
-                          size="sm"
-                          className="gap-2"
-                        >
-                          <Link to={`/projects/${project.slug}`}>
-                            View Project
-                            <ArrowUpRight size={14} />
-                          </Link>
-                        </Button>
-                      </motion.div>
                     </div>
                   </div>
                 </div>
               </div>
+              </Link>
             </motion.article>
           ))}
         </div>
