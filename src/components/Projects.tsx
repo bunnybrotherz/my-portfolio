@@ -194,7 +194,7 @@ const Projects = () => {
                         )}
                       </div>
                     ) : project.images ? (
-                      <div className="grid grid-cols-2 gap-3 w-full">
+                      <div className="grid grid-cols-4 gap-2 w-full">
                         {project.images.map((img, i) => (
                           <img
                             key={i}
