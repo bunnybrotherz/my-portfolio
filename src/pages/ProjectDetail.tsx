@@ -104,7 +104,7 @@ const projectsData: Record<string, {
     title: "GetGoing",
     subtitle: "Systems Design Studio",
     partner: "Gebirah",
-    partnerLogo: "https://media.licdn.com/dms/image/v2/C560BAQHvLW3LFG16yA/company-logo_200_200/company-logo_200_200/0/1631308569915?e=2147483647&v=beta&t=CRHxF_CZl2yjr3L4jUu0s3mM7lWj9Q7VmKBwwLa8DsI",
+    partnerLogo: null,
     period: "Jan - Apr 2025",
     description: "Designed a multilingual flood Early Warning System (EWS) mobile app for underserved Filipino communities in Bagong Silangan, Philippines. Partnered with Gebirah, a humanitarian organization, to create a 'single source of truth' that connects communities and delivers clear, reliable flood warnings. Built agent-based simulations to optimize evacuation prioritization strategies, achieving up to 88% rescue rates for vulnerable populations including elderly and PWDs.",
     tools: ["Figma", "Python", "React", "TypeScript"],
