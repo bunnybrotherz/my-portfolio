@@ -12,6 +12,10 @@ import hci2 from "@/assets/hci-2.png";
 import hci3 from "@/assets/hci-3.png";
 import hciMain from "@/assets/hci-main.png";
 import dbsMain from "@/assets/dbs-main.png";
+import getgoing1 from "@/assets/getgoing-1.png";
+import getgoing2 from "@/assets/getgoing-2.png";
+import getgoing3 from "@/assets/getgoing-3.png";
+import getgoing4 from "@/assets/getgoing-4.png";
 
 // Tool icons mapping using Simple Icons CDN
 const toolIcons: Record<string, string> = {
@@ -25,6 +29,8 @@ const toolIcons: Record<string, string> = {
   PostgreSQL: "https://cdn.simpleicons.org/postgresql",
   Python: "https://cdn.simpleicons.org/python",
   PyTorch: "https://cdn.simpleicons.org/pytorch",
+  React: "https://cdn.simpleicons.org/react",
+  TypeScript: "https://cdn.simpleicons.org/typescript",
   AI: "",
 };
 
@@ -88,6 +94,26 @@ const projects = [
     mainImage: dbsMain,
     images: null,
     slug: "dbs-auto-payment",
+  },
+  {
+    title: "GetGoing",
+    subtitle: "Systems Design Studio",
+    partner: "Gebirah",
+    partnerLogo: "https://media.licdn.com/dms/image/v2/C560BAQHvLW3LFG16yA/company-logo_200_200/company-logo_200_200/0/1631308569915?e=2147483647&v=beta&t=CRHxF_CZl2yjr3L4jUu0s3mM7lWj9Q7VmKBwwLa8DsI",
+    period: "Jan - Apr 2025",
+    description: "Designed a multilingual flood Early Warning System (EWS) mobile app for underserved Filipino communities. Built agent-based simulations to optimize evacuation prioritization strategies, achieving up to 88% rescue rates. Led UX design with mobile-first, swipe-based navigation inspired by popular Filipino apps.",
+    tools: ["Figma", "Python", "React", "TypeScript"],
+    highlights: [
+      "Agent-based simulation",
+      "88% rescue rate achieved",
+      "Multilingual interface",
+      "Mobile-first UX design"
+    ],
+    gradient: "from-cyan-500/20 via-blue-500/10 to-transparent",
+    number: "04",
+    mainImage: null,
+    images: [getgoing1, getgoing2, getgoing3, getgoing4],
+    slug: "getgoing",
   },
 ];
 
