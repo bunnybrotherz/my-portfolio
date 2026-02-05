@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, MapPin, Building2 } from "lucide-react";
+import { Briefcase, MapPin, Calendar, ArrowUpRight } from "lucide-react";
 import bcaLogo from "@/assets/bca-logo.png";
 import accentureLogo from "@/assets/accenture-logo.png";
 
@@ -14,9 +14,10 @@ const experiences = [
     tools: ["Figma", "Canva"],
     logo: bcaLogo,
     highlights: [
-      "Leading UX research with 10+ stakeholder interviews and journey mapping",
-      "Streamlining design-to-handoff workflows with cross-functional teams"
-    ]
+      "Leading UX research with 10+ stakeholder interviews",
+      "Streamlining design-to-handoff workflows"
+    ],
+    color: "from-blue-500 to-cyan-500"
   },
   {
     company: "Accenture",
@@ -28,26 +29,23 @@ const experiences = [
     tools: ["SAP", "MAM Testing"],
     logo: accentureLogo,
     highlights: [
-      "Analyzed 30+ user-reported issues across internal SAP systems",
-      "Executed MAM testing across multiple devices and OS versions",
-      "Contributed to SAP security testing and enterprise risk reduction"
-    ]
+      "Analyzed 30+ user-reported issues in SAP systems",
+      "Executed MAM testing across devices & OS"
+    ],
+    color: "from-purple-500 to-pink-500"
   }
 ];
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-8 sm:py-10 px-4 sm:px-6 bg-gradient-to-b from-secondary/30 via-secondary/20 to-background relative">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden bg-grid-pattern opacity-50" />
-      
+    <section id="experience" className="py-8 sm:py-10 px-4 sm:px-6 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-8"
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 rounded-lg bg-gradient-to-br from-accent to-pink-500">
@@ -61,84 +59,85 @@ const Experience = () => {
           </h2>
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-px" />
+        {/* Compact side-by-side cards */}
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group relative"
+            >
+              {/* Gradient border effect */}
+              <div className={`absolute -inset-0.5 bg-gradient-to-r ${exp.color} rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-300`} />
+              
+              <div className="relative bg-card border border-border rounded-2xl p-5 sm:p-6 hover:border-primary/30 transition-all h-full">
+                {/* Status badge */}
+                <div className="absolute top-4 right-4">
+                  <span className={`px-2.5 py-1 text-xs font-medium rounded-full ${
+                    exp.type === "Upcoming" 
+                      ? "bg-primary/20 text-primary" 
+                      : "bg-muted text-muted-foreground"
+                  }`}>
+                    {exp.type}
+                  </span>
+                </div>
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className={`relative grid md:grid-cols-2 gap-8 ${
-                  index % 2 === 0 ? '' : 'md:direction-rtl'
-                }`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 top-8 w-3 h-3 rounded-full bg-primary -translate-x-1.5 md:-translate-x-1.5 ring-4 ring-background" />
-
-                {/* Content card */}
-                <div className={`ml-6 sm:ml-8 md:ml-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12 md:col-start-2'}`}>
-                  <div className="bg-card border border-border rounded-xl p-4 sm:p-6 hover:border-primary/30 transition-all">
-                    <div className="flex items-start gap-3 sm:gap-4 mb-4">
-                      {/* Company Logo */}
-                      {exp.logo ? (
-                        <img 
-                          src={exp.logo} 
-                          alt={exp.company}
-                          className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-lg flex-shrink-0"
-                        />
-                      ) : (
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-secondary/50 border border-border flex items-center justify-center flex-shrink-0">
-                          <Building2 size={20} className="text-muted-foreground/50 sm:hidden" />
-                          <Building2 size={24} className="text-muted-foreground/50 hidden sm:block" />
-                        </div>
-                      )}
-                      
-                      <div className="flex-1 min-w-0">
-                        <div className="flex flex-col gap-1">
-                          <div>
-                            <h3 className="text-lg sm:text-xl font-bold">{exp.role}</h3>
-                            <p className="text-primary font-medium text-sm sm:text-base">{exp.company}</p>
-                            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mt-1">
-                              <MapPin size={12} className="sm:hidden flex-shrink-0" />
-                              <MapPin size={14} className="hidden sm:block flex-shrink-0" />
-                              {exp.location}
-                              <span className="text-muted-foreground/50">·</span>
-                              <span className="font-mono">{exp.period}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
-                      {exp.tools.map((tool, i) => (
-                        <span 
-                          key={i}
-                          className="px-2 sm:px-2.5 py-0.5 sm:py-1 text-xs bg-primary/10 text-primary rounded-md"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-
-                    <ul className="space-y-1.5 sm:space-y-2">
-                      {exp.highlights.map((highlight, i) => (
-                        <li key={i} className="text-xs sm:text-sm text-muted-foreground flex items-start gap-2">
-                          <span className="w-1 h-1 rounded-full bg-primary mt-1.5 sm:mt-2 flex-shrink-0" />
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
+                {/* Company header */}
+                <div className="flex items-center gap-4 mb-4">
+                  <div className={`p-2 rounded-xl bg-gradient-to-br ${exp.color} shadow-lg`}>
+                    <img 
+                      src={exp.logo} 
+                      alt={exp.company}
+                      className="w-10 h-10 object-contain rounded-lg bg-white p-1"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold group-hover:text-primary transition-colors">
+                      {exp.role}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">{exp.company}</p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+
+                {/* Meta info */}
+                <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground mb-4">
+                  <span className="flex items-center gap-1.5">
+                    <MapPin size={12} />
+                    {exp.location}
+                  </span>
+                  <span className="flex items-center gap-1.5 font-mono">
+                    <Calendar size={12} />
+                    {exp.period}
+                  </span>
+                </div>
+
+                {/* Tools */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {exp.tools.map((tool, i) => (
+                    <span 
+                      key={i}
+                      className="px-2.5 py-1 text-xs bg-secondary text-foreground rounded-lg font-medium"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Highlights - condensed */}
+                <ul className="space-y-1.5">
+                  {exp.highlights.map((highlight, i) => (
+                    <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                      <ArrowUpRight size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
