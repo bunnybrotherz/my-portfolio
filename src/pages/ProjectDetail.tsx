@@ -201,39 +201,12 @@ const ProjectDetail = () => {
             </div>
           </motion.div>
 
-          {/* Game On Timeline - Only show for game-on project */}
-          {slug === "game-on" && <GameOnTimeline />}
-
-          {/* Images Gallery */}
-          {project.images.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="mb-8"
-            >
-              <h2 className="text-xl font-semibold mb-3">Screenshots</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {project.images.map((img, i) => (
-                  <motion.img
-                    key={i}
-                    src={img}
-                    alt={`${project.title} screenshot ${i + 1}`}
-                    className="w-full h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: 0.4 + i * 0.1 }}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          )}
-
           {/* Tools */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="mb-8"
           >
             <h2 className="text-xl font-semibold mb-3">Tools & Technologies</h2>
             <TooltipProvider delayDuration={100}>
@@ -267,6 +240,34 @@ const ProjectDetail = () => {
               </div>
             </TooltipProvider>
           </motion.div>
+
+          {/* Game On Timeline - Only show for game-on project */}
+          {slug === "game-on" && <GameOnTimeline />}
+
+          {/* Images Gallery */}
+          {project.images.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mb-8"
+            >
+              <h2 className="text-xl font-semibold mb-3">Screenshots</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {project.images.map((img, i) => (
+                  <motion.img
+                    key={i}
+                    src={img}
+                    alt={`${project.title} screenshot ${i + 1}`}
+                    className="w-full h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.4 + i * 0.1 }}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
         </div>
       </main>
 
