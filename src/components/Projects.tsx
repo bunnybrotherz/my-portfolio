@@ -59,7 +59,7 @@ const projects = [{
   gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
   number: "02",
   mainImage: smartProtectionDashboard,
-  useLaptopMockup: true,
+  useLaptopMockup: false,
   images: null,
   slug: "smart-protection"
 }, {
