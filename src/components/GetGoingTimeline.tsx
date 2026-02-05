@@ -176,7 +176,7 @@ const problemSolution = {
 
 const projectSpecs = [
   { label: "Duration", value: "4 months" },
-  { label: "Role", value: "UX Designer" },
+  { label: "Role", value: "Backend Engineer" },
   { label: "Team Size", value: "5 members" },
   { label: "Partner", value: "Gebirah" }
 ];
