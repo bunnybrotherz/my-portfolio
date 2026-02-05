@@ -11,7 +11,7 @@ import {
   CheckCircle2,
   Zap
 } from "lucide-react";
-
+import pipelineImage from "@/assets/smart-protection-pipeline.png";
 const phases = [
   {
     id: 1,
@@ -134,6 +134,22 @@ const SmartProtectionTimeline = () => {
       transition={{ duration: 0.5, delay: 0.4 }}
       className="mb-12"
     >
+      {/* Pipeline Diagram */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.45 }}
+        className="mb-12"
+      >
+        <h2 className="text-xl font-semibold mb-4">ML Pipeline Architecture</h2>
+        <div className="p-6 rounded-xl bg-card border border-border">
+          <img 
+            src={pipelineImage} 
+            alt="Smart Protection ML Pipeline showing synthetic and genuine data flowing through YOLOv8, U-Net, and Dashboard" 
+            className="w-full h-auto"
+          />
+        </div>
+      </motion.div>
       {/* Key Metrics */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
