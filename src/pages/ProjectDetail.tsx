@@ -6,6 +6,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GameOnTimeline from "@/components/GameOnTimeline";
+import DBSTimeline from "@/components/DBSTimeline";
 
 import unityLogo from "@/assets/unity-logo.png";
 import gameOn1 from "@/assets/game-on-1.png";
@@ -243,6 +244,9 @@ const ProjectDetail = () => {
 
           {/* Game On Timeline - Only show for game-on project */}
           {slug === "game-on" && <GameOnTimeline />}
+
+          {/* DBS Timeline - Only show for dbs-auto-payment project */}
+          {slug === "dbs-auto-payment" && <DBSTimeline />}
 
           {/* Images Gallery */}
           {project.images.length > 0 && (
