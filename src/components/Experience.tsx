@@ -78,9 +78,7 @@ const Experience = () => {
 
                 {/* Company header */}
                 <div className="flex items-center gap-4 mb-4">
-                  <div className={`p-2 rounded-xl bg-gradient-to-br ${exp.color} shadow-lg`}>
-                    <img src={exp.logo} alt={exp.company} className="w-10 h-10 object-contain rounded-lg bg-white p-1" />
-                  </div>
+                  <img src={exp.logo} alt={exp.company} className="w-12 h-12 object-contain" />
                   <div>
                     <h3 className="text-lg font-bold group-hover:text-primary transition-colors">
                       {exp.role}
