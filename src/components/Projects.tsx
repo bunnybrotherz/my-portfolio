@@ -135,11 +135,11 @@ const Projects = () => {
                 transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
               />
 
-              <div className="relative bg-card border border-border rounded-2xl p-4 sm:p-5 md:p-6 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-start gap-4 sm:gap-6 md:gap-8">
+              <div className="relative bg-card border border-border rounded-2xl p-4 sm:p-5 md:p-6 group-hover:border-blue-400/50 group-hover:bg-card/80 group-hover:shadow-[0_0_30px_-5px_rgba(96,165,250,0.3)] transition-all duration-300 h-full flex flex-col">
+                <div className="flex flex-col gap-4 sm:gap-6 flex-1">
                   {/* Project Images */}
                   <motion.div
-                    className={`flex-shrink-0 ${project.mainImage ? 'w-full md:w-96' : project.images ? 'w-full md:w-72' : 'w-full md:w-64'}`}
+                    className="flex-shrink-0 w-full"
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -215,7 +215,7 @@ const Projects = () => {
                   </motion.div>
 
                   {/* Content */}
-                  <div className="flex-1 min-w-0 relative">
+                  <div className="flex-1 min-w-0 relative flex flex-col">
                     {/* Arrow always at top right */}
                     <ArrowUpRight
                       size={24}
@@ -271,7 +271,7 @@ const Projects = () => {
 
                     <TooltipProvider delayDuration={100}>
                       <motion.div
-                        className="flex flex-wrap gap-3"
+                        className="flex flex-wrap gap-3 mt-auto pt-4"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
