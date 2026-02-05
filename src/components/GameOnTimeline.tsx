@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { Search, Target, Lightbulb, Rocket, Users, ClipboardList, MessageSquare, Palette } from "lucide-react";
+import { Search, ClipboardList, MessageSquare, Users, Palette } from "lucide-react";
+
+import researchContext from "@/assets/research-context.png";
+import researchSurvey from "@/assets/research-survey.png";
+import researchInterview from "@/assets/research-interview.png";
+import researchWorkshop from "@/assets/research-workshop.png";
+import researchPrototype from "@/assets/research-prototype.png";
 
 const phases = [
   {
@@ -19,7 +25,8 @@ const phases = [
       "Explored behavioral change theories applicable to parenting contexts",
       "Reviewed academic literature on gamification in educational settings"
     ],
-    outcome: "Identified key opportunity areas where gamification could meaningfully support parents in building positive parenting habits."
+    outcome: "Identified key opportunity areas where gamification could meaningfully support parents in building positive parenting habits.",
+    image: researchContext,
   },
   {
     diamond: "Discover",
@@ -38,7 +45,8 @@ const phases = [
       "Identified most common parenting scenarios that cause stress",
       "Gathered preferences on game formats, session lengths, and reward systems"
     ],
-    outcome: "Survey data revealed that 78% of parents felt overwhelmed by parenting advice and wanted practical, bite-sized guidance integrated into their daily routines."
+    outcome: "Survey data revealed that 78% of parents felt overwhelmed by parenting advice and wanted practical, bite-sized guidance integrated into their daily routines.",
+    image: researchSurvey,
   },
   {
     diamond: "Define",
@@ -57,7 +65,8 @@ const phases = [
       "Discussed current coping mechanisms and support systems",
       "Identified moments where parents felt most vulnerable or frustrated"
     ],
-    outcome: "Interviews revealed that parents crave a judgment-free space to practice responses to challenging situations before facing them in real life."
+    outcome: "Interviews revealed that parents crave a judgment-free space to practice responses to challenging situations before facing them in real life.",
+    image: researchInterview,
   },
   {
     diamond: "Develop",
@@ -76,7 +85,8 @@ const phases = [
       "Co-created character archetypes and scenario storylines",
       "Prioritized features using dot voting and impact/effort matrices"
     ],
-    outcome: "The workshop produced 4 core game concepts, with participants voting for a scenario-based narrative game that allows parents to practice responses in a safe, gamified environment."
+    outcome: "The workshop produced 4 core game concepts, with participants voting for a scenario-based narrative game that allows parents to practice responses in a safe, gamified environment.",
+    image: researchWorkshop,
   },
   {
     diamond: "Deliver",
@@ -95,7 +105,8 @@ const phases = [
       "Built interactive prototypes for usability testing",
       "Iterated through 4 major design versions based on feedback"
     ],
-    outcome: "The prototype enabled 10+ usability testing sessions, validating core mechanics and refining the user experience before Unity development."
+    outcome: "The prototype enabled 10+ usability testing sessions, validating core mechanics and refining the user experience before Unity development.",
+    image: researchPrototype,
   },
 ];
 
@@ -192,28 +203,42 @@ const GameOnTimeline = () => {
 
                 {/* Content card */}
                 <div className={`p-5 rounded-xl ${phase.bgColor} border ${phase.borderColor}`}>
-                  <h3 className="text-lg font-semibold mb-1">{phase.title}</h3>
-                  <p className="text-sm text-primary font-medium mb-3">{phase.subtitle}</p>
-                  
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                    {phase.description}
-                  </p>
+                  <div className="flex flex-col md:flex-row gap-5">
+                    {/* Image */}
+                    <div className="flex-shrink-0 md:w-64">
+                      <img 
+                        src={phase.image} 
+                        alt={phase.title}
+                        className="w-full h-auto rounded-lg shadow-md"
+                      />
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold mb-1">{phase.title}</h3>
+                      <p className="text-sm text-primary font-medium mb-3">{phase.subtitle}</p>
+                      
+                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                        {phase.description}
+                      </p>
 
-                  <div className="mb-4">
-                    <h4 className="text-sm font-medium mb-2">What We Did</h4>
-                    <ul className="space-y-1.5">
-                      {phase.details.map((detail, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
-                          {detail}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                      <div className="mb-4">
+                        <h4 className="text-sm font-medium mb-2">What We Did</h4>
+                        <ul className="space-y-1.5">
+                          {phase.details.map((detail, i) => (
+                            <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                              {detail}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                  <div className="p-3 rounded-lg bg-background/50 border border-border">
-                    <h4 className="text-sm font-medium mb-1">Key Outcome</h4>
-                    <p className="text-sm text-muted-foreground">{phase.outcome}</p>
+                      <div className="p-3 rounded-lg bg-background/50 border border-border">
+                        <h4 className="text-sm font-medium mb-1">Key Outcome</h4>
+                        <p className="text-sm text-muted-foreground">{phase.outcome}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
