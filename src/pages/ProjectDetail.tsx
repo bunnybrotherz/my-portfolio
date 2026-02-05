@@ -74,7 +74,7 @@ const projectsData: Record<string, {
       "YOLOv11 & U-Net models"
     ],
     images: [],
-    mainImage: smartProtectionMain,
+    mainImage: undefined,
   },
   "dbs-auto-payment": {
     title: "DBS Auto Payment",
