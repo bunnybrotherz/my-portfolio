@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Layers, ImageIcon, Sparkles, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Layers, ImageIcon, Sparkles } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 import unityLogo from "@/assets/unity-logo.png";
 import gameOn1 from "@/assets/game-on-1.png";
 import gameOn2 from "@/assets/game-on-2.png";
@@ -44,7 +45,7 @@ const projects = [
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
     number: "01",
     images: [gameOn1, gameOn2, gameOn3, gameOn4],
-    link: null,
+    slug: "game-on",
   },
   {
     title: "Minutes to Seconds",
@@ -65,7 +66,7 @@ const projects = [
     mainImage: hciMain,
     useLaptopMockup: true,
     images: [hci1, hci3, hci2],
-    link: null,
+    slug: "minutes-to-seconds",
   },
   {
     title: "DBS Auto Payment",
@@ -85,7 +86,7 @@ const projects = [
     number: "03",
     mainImage: dbsMain,
     images: null,
-    link: null,
+    slug: "dbs-auto-payment",
   },
 ];
 
@@ -306,26 +307,24 @@ const Projects = () => {
                         </motion.div>
                       </TooltipProvider>
                       
-                      {project.link && (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: index * 0.15 + 0.6 }}
-                          className="ml-auto"
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: index * 0.15 + 0.6 }}
+                        className="ml-auto"
+                      >
+                        <Button
+                          asChild
+                          size="sm"
+                          className="gap-2"
                         >
-                          <Button
-                            asChild
-                            size="sm"
-                            className="gap-2"
-                          >
-                            <a href={project.link} target="_blank" rel="noopener noreferrer">
-                              View Project
-                              <ExternalLink size={14} />
-                            </a>
-                          </Button>
-                        </motion.div>
-                      )}
+                          <Link to={`/projects/${project.slug}`}>
+                            View Project
+                            <ArrowUpRight size={14} />
+                          </Link>
+                        </Button>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
