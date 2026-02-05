@@ -146,69 +146,60 @@ const Projects = () => {
                     transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
                   >
                     {project.mainImage ? (
-                      <div className="space-y-3">
+                      <div className="space-y-2">
                         {/* Main image - with or without laptop mockup */}
                         {project.useLaptopMockup ? (
-                          <div className="relative">
-                            <div className="bg-[#2d2d2d] rounded-t-lg pt-2 pb-1 px-2">
-                              <div className="flex gap-1.5 mb-1.5">
-                                <div className="w-2 h-2 rounded-full bg-[#ff5f56]" />
-                                <div className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
-                                <div className="w-2 h-2 rounded-full bg-[#27c93f]" />
+                          <div className="relative max-w-xs">
+                            <div className="bg-[#2d2d2d] rounded-t-lg pt-1.5 pb-0.5 px-1.5">
+                              <div className="flex gap-1 mb-1">
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#ff5f56]" />
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#ffbd2e]" />
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#27c93f]" />
                               </div>
                               <img
                                 src={project.mainImage}
                                 alt={`${project.title} main screenshot`}
-                                className="w-full h-auto object-contain rounded-sm"
+                                className="w-full h-auto max-h-32 object-contain rounded-sm"
                               />
                             </div>
-                            <div className="bg-[#1a1a1a] h-3 rounded-b-lg" />
-                            <div className="bg-[#2d2d2d] h-1 w-1/2 mx-auto rounded-b-md" />
+                            <div className="bg-[#1a1a1a] h-2 rounded-b-lg" />
+                            <div className="bg-[#2d2d2d] h-0.5 w-1/2 mx-auto rounded-b-md" />
                           </div>
                         ) : (
                           <img
                             src={project.mainImage}
                             alt={`${project.title} main screenshot`}
-                            className="w-full h-auto object-contain rounded-lg shadow-md group-hover:scale-105 transition-transform duration-500"
+                            className="w-full max-w-xs h-auto max-h-40 object-contain rounded-lg shadow-md group-hover:scale-105 transition-transform duration-500"
                           />
                         )}
                         {/* Additional screenshots */}
                         {project.images && (
-                          <div className="space-y-3 mt-4">
-                            <div className="grid grid-cols-2 gap-3">
-                              {project.images.slice(0, 2).map((img, i) => (
-                                <img
-                                  key={i}
-                                  src={img}
-                                  alt={`${project.title} screenshot ${i + 1}`}
-                                  className="w-full h-auto object-contain rounded-lg group-hover:scale-105 transition-transform duration-500 shadow-md"
-                                />
-                              ))}
-                            </div>
-                            {project.images[2] && (
+                          <div className="grid grid-cols-3 gap-2 max-w-xs">
+                            {project.images.slice(0, 3).map((img, i) => (
                               <img
-                                src={project.images[2]}
-                                alt={`${project.title} screenshot 3`}
-                                className="w-full h-auto object-contain rounded-lg group-hover:scale-105 transition-transform duration-500 shadow-md"
+                                key={i}
+                                src={img}
+                                alt={`${project.title} screenshot ${i + 1}`}
+                                className="w-full h-auto max-h-20 object-contain rounded-md group-hover:scale-105 transition-transform duration-500 shadow-sm"
                               />
-                            )}
+                            ))}
                           </div>
                         )}
                       </div>
                     ) : project.images ? (
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 gap-2 max-w-xs">
                         {project.images.map((img, i) => (
                           <img
                             key={i}
                             src={img}
                             alt={`${project.title} screenshot ${i + 1}`}
-                            className="w-full h-auto object-contain rounded-lg group-hover:scale-105 transition-transform duration-500"
+                            className="w-full h-auto max-h-24 object-contain rounded-md group-hover:scale-105 transition-transform duration-500"
                           />
                         ))}
                       </div>
                     ) : (
-                      <div className="h-40 rounded-lg overflow-hidden bg-secondary/50 border border-border flex flex-col items-center justify-center text-muted-foreground/50">
-                        <ImageIcon size={24} className="mb-1" />
+                      <div className="h-32 max-w-xs rounded-lg overflow-hidden bg-secondary/50 border border-border flex flex-col items-center justify-center text-muted-foreground/50">
+                        <ImageIcon size={20} className="mb-1" />
                         <span className="text-[10px] font-mono">Preview</span>
                       </div>
                     )}
