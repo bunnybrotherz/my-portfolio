@@ -186,8 +186,8 @@ const Projects = () => {
                         {project.images && <div className="grid grid-cols-3 gap-2 w-full">
                             {project.images.slice(0, 3).map((img, i) => <img key={i} src={img} alt={`${project.title} screenshot ${i + 1}`} className="w-full h-auto object-contain rounded-md group-hover:scale-105 transition-transform duration-500 shadow-sm" />)}
                           </div>}
-                      </div> : project.images ? <div className="grid grid-cols-4 gap-2 w-full h-48">
-                        {project.images.map((img, i) => <img key={i} src={img} alt={`${project.title} screenshot ${i + 1}`} className="w-full h-full object-cover rounded-md group-hover:scale-105 transition-transform duration-500" />)}
+                      </div> : project.images ? <div className="grid grid-cols-4 gap-2 w-full h-48 overflow-hidden">
+                        {project.images.map((img, i) => <img key={i} src={img} alt={`${project.title} screenshot ${i + 1}`} className="w-full h-48 object-cover object-top rounded-md group-hover:scale-105 transition-transform duration-500" />)}
                       </div> : <div className="h-48 w-full rounded-lg overflow-hidden bg-secondary/50 border border-border flex flex-col items-center justify-center text-muted-foreground/50">
                         <ImageIcon size={24} className="mb-2" />
                         <span className="text-xs font-mono">Preview</span>
