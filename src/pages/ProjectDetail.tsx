@@ -7,16 +7,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GameOnTimeline from "@/components/GameOnTimeline";
 import DBSTimeline from "@/components/DBSTimeline";
+import SmartProtectionTimeline from "@/components/SmartProtectionTimeline";
 
 import unityLogo from "@/assets/unity-logo.png";
 import gameOn1 from "@/assets/game-on-1.png";
 import gameOn2 from "@/assets/game-on-2.png";
 import gameOn3 from "@/assets/game-on-3.png";
 import gameOn4 from "@/assets/game-on-4.png";
-import hci1 from "@/assets/hci-1.png";
-import hci2 from "@/assets/hci-2.png";
-import hci3 from "@/assets/hci-3.png";
-import hciMain from "@/assets/hci-main.png";
 import dbsMain from "@/assets/dbs-main.png";
 
 const toolIcons: Record<string, string> = {
@@ -28,6 +25,8 @@ const toolIcons: Record<string, string> = {
   "Ruby on Rails": "https://cdn.simpleicons.org/rubyonrails",
   "Google Cloud Platform": "https://logos-world.net/wp-content/uploads/2021/02/Google-Cloud-Symbol.png",
   PostgreSQL: "https://cdn.simpleicons.org/postgresql",
+  Python: "https://cdn.simpleicons.org/python",
+  PyTorch: "https://cdn.simpleicons.org/pytorch",
   AI: "",
 };
 
@@ -59,22 +58,22 @@ const projectsData: Record<string, {
     ],
     images: [gameOn1, gameOn2, gameOn3, gameOn4],
   },
-  "minutes-to-seconds": {
-    title: "Minutes to Seconds",
-    subtitle: "HCI & AI Project",
+  "smart-protection": {
+    title: "Smart Protection for Conserved Areas",
+    subtitle: "ML & Computer Vision",
     partner: null,
     partnerLogo: null,
     period: "May - Aug 2024",
-    description: "Designed and deployed an AI-powered web application that reduces meeting summarization time from minutes to seconds. Led the UX research process including user interviews, competitive analysis, and Nielsen heuristic evaluation. Collaborated with developers to implement the frontend while ensuring seamless AI integration and accessibility compliance.",
-    tools: ["Figma", "Ruby", "AI", "Google Cloud Platform"],
+    description: "Engineered an end-to-end ML inference pipeline detecting illegal structures across 20 protected areas spanning 3,470 km². Built a synthetic data pipeline using Stable Diffusion, augmenting 100+ tarp variants and reducing labeled data reliance by 70%+. Implemented comprehensive evaluation workflows (precision, recall, F1, mAP) and backend alerting systems, reducing response time by 3–5×.",
+    tools: ["Python", "PyTorch", "Figma"],
     highlights: [
-      "10 in-depth user interviews",
-      "Nielsen heuristic evaluation",
-      "Live GCP deployment",
-      "Cross-functional collaboration"
+      "20 protected areas covered",
+      "70%+ reduction in labeled data",
+      "3–5× faster response time",
+      "YOLOv11 & U-Net models"
     ],
-    images: [hci1, hci2, hci3],
-    mainImage: hciMain,
+    images: [],
+    mainImage: undefined,
   },
   "dbs-auto-payment": {
     title: "DBS Auto Payment",
@@ -247,6 +246,9 @@ const ProjectDetail = () => {
 
           {/* DBS Timeline - Only show for dbs-auto-payment project */}
           {slug === "dbs-auto-payment" && <DBSTimeline />}
+
+          {/* Smart Protection Timeline - Only show for smart-protection project */}
+          {slug === "smart-protection" && <SmartProtectionTimeline />}
 
           {/* Images Gallery */}
           {project.images.length > 0 && (
