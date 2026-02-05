@@ -24,6 +24,8 @@ const toolIcons: Record<string, string> = {
   "Ruby on Rails": "https://cdn.simpleicons.org/rubyonrails",
   "Google Cloud Platform": "https://logos-world.net/wp-content/uploads/2021/02/Google-Cloud-Symbol.png",
   PostgreSQL: "https://cdn.simpleicons.org/postgresql",
+  Python: "https://cdn.simpleicons.org/python",
+  PyTorch: "https://cdn.simpleicons.org/pytorch",
   AI: "",
 };
 
@@ -48,25 +50,25 @@ const projects = [
     slug: "game-on",
   },
   {
-    title: "Minutes to Seconds",
-    subtitle: "HCI & AI Project",
+    title: "Smart Protection for Conserved Areas",
+    subtitle: "ML & Computer Vision",
     partner: null,
     partnerLogo: null,
     period: "May - Aug 2024",
-    description: "Designed and deployed an AI-powered web application that reduces meeting summarization time from minutes to seconds. Led the UX research process including user interviews, competitive analysis, and Nielsen heuristic evaluation. Collaborated with developers to implement the frontend while ensuring seamless AI integration and accessibility compliance.",
-    tools: ["Figma", "Ruby", "AI", "Google Cloud Platform"],
+    description: "Engineered an end-to-end ML inference pipeline detecting illegal structures across 20 protected areas spanning 3,470 km². Built a synthetic data pipeline using Stable Diffusion, augmenting 100+ tarp variants and reducing labeled data reliance by 70%+. Implemented evaluation workflows and backend alerting, reducing response time by 3–5×.",
+    tools: ["Python", "PyTorch", "Figma"],
     highlights: [
-      "10 in-depth user interviews",
-      "Nielsen heuristic evaluation",
-      "Live GCP deployment",
-      "Cross-functional collaboration"
+      "20 protected areas covered",
+      "70%+ reduction in labeled data",
+      "3–5× faster response time",
+      "YOLOv11 & U-Net models"
     ],
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
     number: "02",
-    mainImage: hciMain,
-    useLaptopMockup: true,
-    images: [hci1, hci3, hci2],
-    slug: "minutes-to-seconds",
+    mainImage: null,
+    useLaptopMockup: false,
+    images: null,
+    slug: "smart-protection",
   },
   {
     title: "DBS Auto Payment",
