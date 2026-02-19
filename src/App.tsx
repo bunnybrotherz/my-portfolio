@@ -15,7 +15,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.PROD ? "/my-portfolio" : "/"}>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
