@@ -15,7 +15,16 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename={import.meta.env.PROD ? "/my-portfolio" : "/"}>
+      {/* Compute basename at runtime as a fallback on Pages */}
+      <BrowserRouter
+        basename={
+          typeof window !== "undefined" && window.location.pathname.startsWith("/my-portfolio")
+            ? "/my-portfolio"
+            : import.meta.env.PROD
+            ? "/my-portfolio"
+            : "/"
+        }
+      >
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
